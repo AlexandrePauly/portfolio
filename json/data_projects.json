@@ -1,0 +1,42 @@
+[
+  {
+    "nom": "Site E-Commerce",
+    "detail": "Ce site web est issu d'un projet de formation.",
+    "objectif": "Faire mes premiers pas dans le développement web.",
+    "link_github": "https://github.com/AlexandrePauly/Web-site",
+    "images": ["web-site2", "web-site6", "web-site8", "web-site11", "web-site2"],
+    "languages_used": ["html", "css", "js", "php", "mysql"]
+  },
+  {
+    "nom": "Formulaires",
+    "detail": "Vous trouverez ici quelques formulaires que j'ai pu réaliser pour un site web E-commerce.",
+    "objectif": "Faire mes premiers pas dans le développement web et développer des compétences en design.",
+    "link_github": "https://github.com/AlexandrePauly?tab=repositories",
+    "images": ["form-connexion", "form-contact4", "form-paiement", "gift-card", "form-connexion"],
+    "languages_used": ["html", "css", "js"]
+  },
+  {
+    "nom": "Portfolio",
+    "detail": "Site sur lequel vous êtes actuellement.",
+    "objectif": "Apprendre à faire des animations et à monter en compétences en web design (choix des thèmes de couleurs, des photos, retouches des photos, etc.). L'intérêt était de développer un projet de A à Z en l'hébergeant.",
+    "link_github": "https://alexandrepauly.github.io/portfolio/",
+    "images": ["portfolio1", "portfolio6", "portfolio8", "portfolio10", "portfolio1"],
+    "languages_used": ["html", "css", "js"]
+  },
+  {
+    "nom": "Curriulum Vitae",
+    "detail": "Réalisation d'un CV en langages web",
+    "objectif": "Apprendre à gérer les styles et le positionnement des balises.",
+    "link_github": "https://alexandrepauly.github.io/HTML-CV/",
+    "images": ["cv", "cv", "cv", "cv", "cv"],
+    "languages_used": ["html", "css", "js"]
+  },
+  {
+    "nom": "Interface JavaFX",
+    "detail": "Ce site web est issu d'un projet de formation. Ces interfaces sont issues de projet de formation. L'une pour la gestion d'un centre de tri et l'autre pour le débruitage d'images par ACP.",
+    "objectif": "Faire mes premiers pas en langage objet.",
+    "link_github": "https://github.com/AlexandrePauly/JavaFX-interface",
+    "images": ["javafx1", "javafx2", "javafx3", "javafx4", "javafx1"],
+    "languages_used": ["java", "javafx"]
+  }
+]

@@ -1,0 +1,68 @@
+:root{
+    /*-- Couleurs du portfolio --*/
+    --footerColor: #333;
+    --footerContentColor: white;
+    --footerContentColor-hover: rgba(255, 255, 255, 0.666);
+}
+
+/* -- Bas de page du portfolio -- */
+  
+footer{
+    padding: 20px 40px 0 40px;
+    background-color: var(--footerColor);
+    color: var(--footerContentColor);
+    height: auto;
+}
+
+#footer{
+    border-top: 2px solid var(--footerContentColor);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+/* Partie gauche du footer */
+#footer-left{
+    display: flex;
+    flex-direction: inline;
+    flex-wrap: wrap;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#footer-left a{
+    border: none;
+    background-color: transparent;
+    margin-right: 20px;
+    color: var(--footerContentColor);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#footer-left a:last-child{
+    margin-right: 0;
+}
+
+#footer-left a:hover, #footer-right a:hover{
+    color: var(--footerContentColor-hover);
+}
+
+/* Partie droite du footer */
+#footer-right{
+    display: flex;
+    justify-content: end;
+    flex-direction: inline;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#footer-right a{
+    margin-right: 20px;
+    font-size: 25px;
+    color: var(--footerContentColor);
+}
+
+#footer-right a:last-of-type{
+    margin-right: 0;
+}

@@ -1,0 +1,653 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+:root{
+    /*-- Couleurs du portfolio --*/
+    --mainColor: #f5f5f5;
+    --textColor: rgba(255, 255, 255, 0.85);
+    --button: #27ae60;
+    --contactColor: black;
+    --contactBgInput: rgba(255, 255, 255, 0.75);
+
+    /* Autres */
+    --button-height: 48px;
+    --icon-size: 10px;
+    --loader-size: 52px;
+    --containerPercent: #03224C1A;
+    --percentProgress: #263246;
+    --boxShadowMain: 0 0.7em 1em -0.5em black;
+    --boxShadowAbout: 0 0.7em 1em -0.5em var(--percentProgress);
+    --imgBanner: url(../img/banner/banner1.jpg);
+    --contactImgBanner: url(../img/banner/banner2.jpg);
+}
+
+/* -- Contenu du portfolio -- */
+
+/* Page Accueil du portfolio */
+#home-img {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    border-radius: 0px 0px 50% 50% / 0px 0px 100px 100px;
+}
+  
+.inner-shadow {
+    height: 95vh;
+    background-size: cover;
+    border-radius: inherit;
+    box-shadow: var(--boxShadowMain);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    animation: shutter-in-top 2s linear 0s 1 normal none;
+}
+@keyframes shutter-in-top {
+			
+    0% {
+        transform:rotateX(-100deg);
+        transform-origin:top;
+        opacity:0;
+    }
+    100% {
+        transform:rotateX(0deg);
+        transform-origin:top;
+        opacity:1;
+    }
+}
+
+#content-home{
+    position: absolute;
+    bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: none;
+}
+
+.translateX{
+    transform: translateX(0);
+}
+
+#content-home>*{
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    color: var(--textColor);
+}
+
+#content-home h1{
+    font-size: 4vw;
+    transition: 1s;
+}
+
+#content-home p{
+    font-size: 3vw;
+    transition: 1s;
+}
+
+#content-home div{
+    height: 62px;
+}
+
+#content-home a{
+    padding: 15px;
+    border: 2px solid var(--textColor);
+    border-radius: 5px;;
+    font-size: 1.5vw;
+    margin: auto auto 0 auto;
+    background-color: transparent;
+    transition: 1s;
+    transition: 
+    font-size 0.5s,
+    background-color 2s;
+    color: var(--textColor);
+}
+
+#content-home a:hover{
+    font-size: 2vw;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#content-home img, #content-about img{
+    width: 275px;
+    height: auto;
+}
+
+/* Bannière inter-sections */
+.banner{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    background-image: var(--imgBanner); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: var(--boxShadowMain);
+    position: relative;
+    z-index: 10;
+}
+
+.content-banner{
+    margin: auto;
+    color: var(--textColor);
+    width: 60%;
+    text-align: center;
+}
+
+.content-banner h1{
+    margin-bottom: 20px;
+}
+
+.content-banner p{
+    font-size: 20px;
+}
+
+#date-alternance { 
+    font-size: 20px;   
+    margin-top: 20px;      
+}
+
+#quote{
+    position: relative;
+    top: 0;
+    right: 0;
+    animation: animateQuote 4s linear infinite;
+}
+@keyframes animateQuote{
+    50%{
+        right: 10px;
+        top: -20px;
+    }
+}
+
+.author{
+    margin-top: 20px;
+    color: #909090;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenu de chaque section */
+.content{
+    padding: 40px;
+    position: relative;
+    background-color: var(--mainColor);
+}
+
+/* Page À propos du portfolio*/
+#content-about, #content-skills, #content-projects{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 100%;
+    margin: auto;
+}
+
+#content-about h1, #content-skills h1, #content-contact h1, #content-projects h1{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Partie gauche de la page À propos */
+#content-about .content-leftCol{
+    margin: auto;
+    padding: 40px;
+}
+
+#content-about .content-leftCol img{
+    border-radius: 20px;
+    box-shadow: var(--boxShadowMain);
+    display: none;
+}
+
+/* Partie droite de la page À propos */
+#content-about .content-rightCol{
+    margin: 50px;
+    height: 100%;
+    padding: 40px;
+    margin: auto;
+    text-align: justify;
+}
+
+#content-about .content-rightCol>*{
+    margin-bottom: 20px;
+}
+
+.subcontent{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Page Compétences du portfolio*/
+#content-skills>p, #content-projects>p{
+    width: 40%;
+    margin: 40px auto 40px auto;
+    text-align: center;
+    font-size: large;
+}
+
+#content-skills .subcontent{
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Partie gauche de la page Compétences */
+#content-skills .content-leftCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    padding: 40px;
+}
+
+#content-skills .content-leftCol h3{
+    margin: 20px auto auto auto;
+    text-transform: uppercase;
+}
+
+.skills h4{
+    margin: 10px auto 5px auto;
+    text-transform: uppercase;
+}
+
+/* Barres de pourcentages des compétences */
+.content-percent{
+    height: 8px;
+    background-color: var(--containerPercent);
+}
+
+.percent{
+    height: 8px;
+    background-color: var(--percentProgress);
+}
+
+/* Partie droite de la page Compétences */
+#content-skills .content-rightCol{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#content-skills .content-rightCol img{
+    width: 30vw;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--boxShadowMain);
+    margin: auto;
+}
+
+/* Bouton pour télécharger le CV */
+.download-CV {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em auto 0.8em auto;
+    color: white;
+    background: linear-gradient(0deg, var(--percentProgress) 0%, #4f6da0 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em var(--percentProgress);
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    width: 260px;
+    height: 50px;
+    margin: 20px auto;
+}
+  
+.download-CV svg{
+    margin-right: 8px;
+}
+  
+.download-CV:hover{
+    box-shadow: var(--boxShadowAbout);
+    animation: button-cv 0.5s linear 0s 1 normal forwards;
+}
+
+@keyframes button-cv {
+            
+    0% {
+        transform:scale(1);
+    }
+    100% {
+        transform:scale(1.02);
+    }
+}
+
+.cssbuttons-io-button:active{
+    box-shadow: var(--boxShadowAbout);
+}
+
+/* Page de projets du portfolio */
+#content-projects .subcontent{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+/* Affichage des projets */
+.content-project{
+    height: 50vh;
+    width: 50vh;
+    margin: 20px;
+}
+
+/* Image du projet */
+.content-project .container-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.content-project .img-project{
+    height: 40vh;
+    width: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--image-project);
+    border-radius: 8px;
+    box-shadow: var(--boxShadowMain);
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.content-project .img-project::before {
+    content: "";
+    background-image: var(--image-project);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 8px;
+    box-shadow: var(--boxShadowMain);
+}
+
+.content-project .img-project:hover{
+    animation: zoom-in-out 0.35s linear 0s 1 normal forwards;
+}
+@keyframes zoom-in-out {
+        
+    0% {
+        transform:scale(1);
+    }
+    100% {
+        transform:scale(1.05);
+    }
+}
+
+/* Bouton pour accéder aux informations détaillées du projet - Affichage d'une popup */
+.project-button {
+    display: inline-block;
+    position: absolute;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--button);
+    padding: 20px 50px;
+    border: 3px solid var(--button);
+    visibility: hidden;
+    opacity: 0;
+    background-color: transparent;
+    transition: visibility 0.5s, opacity 0.5s, background-color 0.5s linear;
+    z-index: -1;
+    filter: blur(0);
+    cursor: pointer;
+}
+
+.img-project:hover .project-button {
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
+.project-button::before,
+.project-button::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: inherit;
+    transition: width .25s .15s, height .25s;
+}
+
+.project-button::before {
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+
+.project-button::after {
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+
+.project-button:hover::before,
+.project-button:hover::after {
+    width: calc(100% + 27px);
+    height: calc(100% + 27px);
+}
+
+/* Titre du projet */
+.text-project{
+    text-align: center;
+}
+
+.text-project>*{
+    margin: 0 5px;
+    position: relative;
+    top: -3vh;
+}
+
+.text-project h3{
+    text-transform: uppercase;
+    font-size: 3vh;
+}
+
+.text-project span{
+    font-size: 2vh;
+}
+
+/* Page de contact du portfolio */
+#content-contact{
+    background-image: var(--contactImgBanner);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 2px solid var(--contactColor);
+    width: 100%;
+}
+
+#subcontent-contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto 20% auto 20%;
+}
+
+#subcontent-contact h1{
+    margin: 20px auto 20px auto;
+}
+
+/* Champs du formulaire */
+.form-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.form-input input{
+    background-color: var(--contactBgInput);
+    height: 50px;
+    width: 100%;
+    padding: 3%;
+    border: 1px solid var(--contactColor);
+    border-radius: 4px;
+}
+
+.form-input input:first-of-type{
+    margin-right: 20px;
+}
+
+/* Champ d'objet */
+.object{
+    background-color: var(--contactBgInput);
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 3%;
+    border: 1px solid var(--contactColor);
+    border-radius: 4px;
+}
+
+/* Champ de message */
+#content-contact textarea{
+    background-color: var(--contactBgInput);
+    height: 250px;
+    width: 100%;
+    padding: 3%;
+    border: 1px solid var(--contactColor);
+    border-radius: 4px;
+}
+
+/* Bouton d'envoie du mail */
+#form-button{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Permet de cacher les flèches pour incrémenter et décrémenter sur Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Permet de cacher les flèches pour incrémenter et décrémenter sur Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Bouton importé de CodePen : réalisé par Codewithshobhit */
+button.expand {
+    margin-top: 20px;
+	overflow: hidden;
+	outline: none;
+	background-color: var(--button);
+	border-radius: 4px;
+	padding: 12px 25px;
+	font-size: 1.1em;
+	border: none;
+	color: white;
+	cursor: pointer;
+	position: relative;
+	transition: padding 0.3s;
+    width: 250px;
+}
+
+.expand-icon {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: var(--button-height);
+	width: var(--button-height);
+	border-left: 1px solid white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(calc(var(--button-height) + 1px));
+	transition: transform 0.3s;
+}
+
+.expand-icon > svg {
+	height: var(--icon-size);
+	width: var(--icon-size);
+	transform: scale(1.5);
+	transition: transform 0.3s;
+}
+
+.expand-icon > svg.second {
+	display: none;
+	transform: scale(0) translateY(50px);
+	transition: transform 0.3s;
+}
+
+button.expand:hover,
+button.expand.loading {
+	padding-right: calc(25px + var(--button-height));
+}
+
+button.expand:hover > .expand-icon,
+button.expand.loading > .expand-icon {
+	transform: translateX(0);
+	transition: transform 0.3s 0.05s;
+}
+
+button.expand.loading > .expand-icon > svg {
+	transform: scale(0);
+}
+
+@keyframes rotate {
+	0% {
+		transform: scale(0.3) rotateZ(0deg);
+	}
+	100% {
+		transform: scale(0.3) rotateZ(360deg);
+	}
+}
+
+.loader {
+	height: var(--loader-size);
+	width: var(--loader-size);
+	border: 4px solid white;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	background-color: transparent;
+	border-radius: 50%;
+	animation: rotate 1.5s linear infinite;
+	position: absolute;
+	right: 0;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 1s 0.3s;
+}
+
+button.expand.loading > span > span.loader {
+	opacity: 1;
+}
+
+button.expand.loaded > span > span.loader {
+	opacity: 0 !important;
+}
+
+button.expand.loaded > .expand-icon > svg.first {
+	display: none;
+}
+
+button.expand.loaded > .expand-icon > svg.second {
+	display: block;
+}
+
+button.expand.finished > .expand-icon > svg.second {
+	transform: scale(1.5) translateY(0px);
+}

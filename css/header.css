@@ -1,0 +1,177 @@
+:root{
+    /*-- Couleurs du portfolio --*/
+    --headerColor: white;
+    --headerContentColor: black;
+    --headerLinksColor: rgba(255, 255, 255, 0.85);
+}
+
+/* -- Haut de page du portfolio -- */
+
+header{
+    height: 120px;
+    width: 100%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 20px;
+    position: absolute;
+    z-index: 100;
+}
+
+header a{
+    transition: color 0.5s;
+}
+
+header li:hover{
+    animation: header-elt 0.1s linear 0s 1 normal forwards;
+}
+
+@keyframes header-elt {
+            
+    0% {
+        transform:scale(1);
+    }
+    100% {
+        transform:scale(1.02);
+    }
+}
+
+.color{
+    color: var(--headerLinksColor);
+}
+
+#header-left{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#header-left>*{
+    position: relative;
+    z-index: 100;
+}
+
+/* Menu du portfolio */
+#header-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+#header-right span {
+    text-decoration: none;
+    margin-right: 5vw;
+    padding-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+    z-index: 100;
+}
+
+#header-right span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.5s;
+}
+
+#header-right span:hover::after {
+    border-color: var(--headerColor);
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+/* Sous-menu pour l'élément Projets */
+.submenu {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 70px;
+    background-color: var(--headerColor);
+    padding: 0;
+    width: 1000vh;
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.submenu-open{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.submenu .img{
+    border-radius: 50%;
+    margin-right: 60px;
+    width: 130px;
+    height: 130px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/2.png);
+    border: 2px solid black;
+    box-shadow: 0 0.7em 1.5em -0.5em black;
+    background-color: var(--headerColor);
+}
+
+/* Onglets */
+.submenu-content{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Ensemble des projets */
+.submenu-projects{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.submenu-projects ul{
+    list-style: none;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.submenu-projects li{
+    margin-bottom: 5px;
+}
+
+.submenu-projects a{
+    font-size: 120%;
+}
+
+/* Points pour changer d'onglet */
+.three-points{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.point{
+    border-radius:50%;
+    height: 15px;
+    width: 15px;
+    margin-right: 15px;
+}
+
+.point:last-child{
+    margin-right: 0;
+}
+
+/* Classe à appliquer lorsque l'utilisateur scroll sur la page */
+.headerFixed{
+    position: fixed;
+    background-color: var(--headerColor);
+}

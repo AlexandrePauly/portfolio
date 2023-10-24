@@ -1,0 +1,559 @@
+/* @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro); */
+/* font-family: 'Source Sans Pro', sans-serif; */
+
+:root{
+    /*-- Couleurs du portfolio --*/
+    --headerColor: white;
+    --headerContentColor: black;
+    --mainColor: #f3f3f3;
+    --footerColor: #333;
+    --footerContentColor: white;
+    --link-button: #27ae60;
+
+    /* Autres */
+    --link-button-height: 48px;
+    --icon-size: 10px;
+    --loader-size: 52px;
+    --toast-color: #5cb85c; /* ! : #f0ad4e -- msg : #337ab7 -- error : #d9534f -- success : #5cb85c*/
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--mainColor);
+    position: relative;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/* Notifications de messages */
+#toast{
+    opacity: 0;
+    position: fixed;
+    bottom: 10px;
+    left: calc(50% - 140px);
+    padding: 5px 10px 5px 10px;
+    background-color: var(--toast-color);
+    border-radius: 5px;
+    width: auto;
+    height: 45px;
+}
+
+#toast-content{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+#icon{
+    margin-right: 20px;
+    background-color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#icon i{
+    color: var(--toast-color);
+    margin: auto;
+    font-size: 25px;
+}
+
+#toast-content p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Flèche pour remonter en haut de la page */
+#scroll-arrow{
+    position: fixed;
+    z-index: 1000;
+    bottom: 35px;
+    right: 35px;
+    background-color: rgba(0,0,0,0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: none;
+}
+
+#scroll-arrow i{
+    color: white;
+    margin: auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Popup du détail des projets */
+#popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 2000;
+}
+
+#popup::before {
+    content: "";
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+#popup-container{
+    margin: auto;
+    z-index: 2000;
+    width: 1000vw;
+    max-width: 80%;
+    box-shadow: 0 0.7em 1em -0.5em black;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#popup-header{
+    height: 50px;
+    background-color: #263246;
+    padding: 10px 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: white;
+    position: relative;
+}
+
+#popup-header span{
+    font-size: 35px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    margin: auto 0;
+}
+
+#popup-header span:hover{
+    color: rgba(255, 255, 255, 0.8);
+    animation: close-button 0.3s linear 0s 1 normal forwards;
+}
+@keyframes close-button {
+        
+    0% {
+        transform:scale(1);
+    }
+    100% {
+        transform:scale(1.1);
+    }
+}
+
+#popup-content{
+    background-color: #f9f9f9;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 20px;
+}
+
+#popup-content .content{
+    display: flex;
+    flex-direction: row;
+}
+
+#popup-content .subcontent{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+#popup-content .subcontent .content-leftCol{
+    overflow: hidden;
+    margin: 0 20px 0 20px;
+    border-radius: 15px;
+    box-shadow: 0 0.7em 1em -0.5em black;
+}
+
+.slider {
+    animation: slider-1 16s infinite ease-in-out;
+    display: flex;
+}
+
+#popup-content .subcontent .content-leftCol .project-img {
+    flex-shrink: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: 60vh;
+    max-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@keyframes slider-1 {
+    0%,
+    20% {
+      transform: translateX(0);
+    }
+    25%,
+    45% {
+      transform: translateX(-100%);
+    }
+    50%,
+    70% {
+      transform: translateX(-200%);
+    }
+    75%,
+    95% {
+      transform: translateX(-300%);
+    }
+    100% {
+      transform: translateX(-400%);
+    }
+} 
+
+#popup-content .subcontent .content-rightCol{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+#popup-content .subcontent .content-rightCol h1{
+    font-size: 5vh;
+    margin: 0 auto 20px auto;
+}
+
+#popup-content .subcontent .content-rightCol p{
+    font-size: 2vh;
+    margin-bottom: 10px;
+}
+
+.languages-used{
+    margin: auto auto 0 auto;
+}
+
+.languages-used img{
+    height: 100px;
+}
+
+/* Bouton pour accéder au lien du projet */
+.link-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background-color: #7effb2;
+    background-image: linear-gradient(90deg, #2cd9ff, #7effb2);
+    color: #090909;
+    font-size: 1.2rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 0.8rem;
+    isolation: isolate;
+    margin: 20px auto;
+}
+.link-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: linear-gradient(90deg, #7effb2, #2cd9ff);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.link-button:hover::before {
+    opacity: 1;
+}
+.link-button-icon {
+    display: inline-flex;
+    font-size: 1.6rem;
+    padding-right: 0.5rem;
+    border-right: 2px solid #090909;
+}
+.link-button-icon i {
+    margin-block: auto;
+}
+
+/* Affichage en grand des images */
+#imgExpand{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 3000;
+}
+
+#imgExpand img{
+    border: solid 5px var(--white);
+    border-radius: 20px;
+    width: auto;
+    max-height: 90%;
+}
+
+#imgExpand.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.expandabled-img, .expandabled-project{
+    cursor: pointer;
+}
+
+/* Style pour bloquer l'accès aux mobiles */
+.mobile-message {
+    display: none;
+}
+  
+@media screen and (max-width: 700px) and (min-width: 0){
+    /* -- Haut de page du portfolio -- */
+
+    header{
+        display: flex !important;
+    }
+
+    #header-left{
+        display: none;
+    }
+
+    #header-right{
+        justify-content: center !important;
+    }
+
+    #header-right span:last-child {
+        margin-right: 0;
+    }
+    
+    .submenu .img{
+        margin-top: 20px;
+    }
+
+    .vide{
+        display: none;
+    }
+
+    /* -- Contenu du portfolio -- */
+
+    /* Page de contact du portfolio */
+    #content-contact{
+        margin: auto 5% auto 5%;
+    }
+
+    /* Champ de nom et de mail */
+    #form-top{
+        flex-direction: column;
+    }
+
+    .name{
+        margin-bottom: 20px;
+    }
+
+    /* -- Bas de page du portfolio -- */
+
+    footer{
+        font-size: 130%;
+    }
+
+    #footer{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    #footer-left, #footer-right{
+        justify-content: center !important;
+    }
+
+    #footer-right a{
+        font-size: 130%;
+    }
+}
+
+@media screen and (max-width: 1000px){ /* Mettre entre 250px et 700px */
+    /* -- Haut de page du portfolio -- */
+
+    header{
+        display: flex !important;
+    }
+
+    #header-left{
+        display: none;
+    }
+
+    #header-right{
+        justify-content: center !important;
+    }
+
+    #header-right span:last-child {
+        margin-right: 0;
+    }
+
+    #header-right .submenu-content{
+        font-size: 80%;
+    }
+    
+    .submenu img{
+        margin-top: 20px;
+    }
+
+    .vide{
+        display: none;
+    }
+
+    /* -- Contenu du portfolio -- */
+
+    #content-home{
+        font-size: 60%;
+    }
+
+    #content-home .subcontent, #content-about .subcontent, #content-skills .subcontent{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    #content-skills p{
+        width: 80% !important;
+    }
+
+    #content-skills .content-leftCol{
+        width: 80% !important;
+    }
+
+    #content-skills .content-rightCol img{
+        width: 60vw !important;
+    }
+
+    /* Page de projets du portfolio */
+    .slider-container .subcontent {
+        flex-direction: column !important;
+    }
+
+    .subsubcontent{
+        flex-direction: column !important;
+        padding: 40px !important;
+    }
+
+    #web-site{
+        border-top: 2px solid black;
+        display: flex !important;
+        margin: auto !important;
+        justify-content: center !important;
+    }
+
+    #web-site .slider{
+        animation-play-state: running !important;
+    }
+
+    .projects-webSite {
+        margin: auto !important;
+    }
+
+    .subsubcontent .content-rightCol{
+        margin: 20px auto auto auto !important;
+    }
+
+    .arrow{
+        display: none !important;
+    }
+
+    /* Page de contact du portfolio */
+    #content-contact h1{
+        font-size: 150%;
+    }
+
+    /* Champ de nom et de mail */
+    #form-top{
+        flex-direction: column;
+    }
+
+    .name, .email{
+        margin-bottom: 20px;
+    }
+
+    /* Champ de nom et de mail */
+    .form-input{
+        flex-wrap: wrap;
+    }
+
+    .form-input input:first-of-type{
+        margin-right: 0px !important;
+    }
+
+    /* Popup des projets */
+    #popup-content .subcontent{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    #popup-content .subcontent .content-leftCol .project-img {
+        height: 30vh;
+    }
+
+    #popup-content .subcontent .content-rightCol{
+        padding: 20px 20px 0 20px;
+    }
+
+    .languages-used img{
+        height: 60px;
+    }
+
+    /* -- Bas de page du portfolio -- */
+    #footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #footer-left, #footer-right{
+        justify-content: center;
+    }
+
+    #footer-right a{
+        margin-top: 10px;
+    }
+}
