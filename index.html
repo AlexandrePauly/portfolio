@@ -18,7 +18,7 @@
     <script src="js/script.js"></script> <!-- Fonctions générales -->
     <script src="js/buttonForm.js"></script> <!-- Actions du bouton -->
     <script src="js/scrollFunction.js"></script> <!-- Fonctions réagissant au scroll sur la page -->
-    <script src="js/onloadFunction.js"></script> <!-- Fonctions réagissant au chargement de la page -->
+    <script src="js/onloadFunction.js" async></script> <!-- Fonctions réagissant au chargement de la page -->
     <script src="js/img_size.js"></script> <!-- Fonctions pour aggrandir les images avec un click -->
     <script src="js/popupProject.js"></script> <!-- Fonctions pour afficher une popup avec un click -->
 
@@ -62,7 +62,7 @@
                                 <ul>
                                     <li><a class="color" href="#content-projects">Curriculum Vitae</a></li>
                                     <li><a class="color" href="#content-projects">Portfolio</a></li>
-                                    <li><a class="color" href="#content-projects">Interface JavaFX</a></li>
+                                    <li><a class="color">--</a></li>
                                 </ul>
                                 <ul class="vide">
                                     <li><a class="color">--</a></li>
@@ -80,7 +80,7 @@
                             <div class="three-points">
                                 <div class="point" onclick="changeProjects(0)" style="background-color: #6B7E65; cursor: pointer;"></div>
                                 <div class="point" onclick="changeProjects(1)" style="background-color: #AAC2A2; cursor: pointer;"></div>
-                                <div class="point" style="background-color: #c4e0bb;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #AAC2A2; cursor: pointer;"></div>
                             </div>
                         </div>
 
@@ -116,7 +116,43 @@
                             <div class="three-points">
                                 <div class="point" onclick="changeProjects(0)" style="background-color: #AAC2A2; cursor: pointer;"></div>
                                 <div class="point" onclick="changeProjects(1)" style="background-color: #6B7E65; cursor: pointer;"></div>
-                                <div class="point" style="background-color: #c4e0bb;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Troisième onglet -->
+                        <div class="submenu-content" style="display: none;">
+                            <h1>Divers</h1>
+
+                            <!-- Ensemble des projets en Applications mobiles -->
+                            <div class="submenu-projects">
+                                <ul>
+                                    <li><a class="color" href="#content-projects">Démineur en C</a></li>
+                                    <li><a class="color" href="#content-projects">Reconnaissance d'empreintes digitales en Python</a></li>
+                                    <li><a class="color" href="#content-projects">Interface JavaFX</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>  
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>                                                      
+                            </div>
+
+                            <!-- Points pour changer d'onglet -->
+                            <div class="three-points">
+                                <div class="point" onclick="changeProjects(0)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(1)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #6B7E65; cursor: pointer;"></div>
                             </div>
                         </div>
                     </div>
@@ -172,7 +208,7 @@
             <!-- Page Compétences du portfolio -->
             <div id="content-skills" class="content">
                 <h1>Compétences</h1>
-                <p>Il est important de gagner progressivement en compétence et, pour moi, la joie d'apprendre et de progresser constamment est cruciale, d’autant plus en étant impliqué, curieux et passionné.</p>
+                <p>Elles sont en constante amélioration car, pour moi, la joie d'apprendre et de progresser constamment est cruciale, d’autant plus en étant impliqué, curieux et passionné.</p>
 
                 <div class="subcontent">
                     <!-- Partie gauche de la page Compétences -->
@@ -343,6 +379,22 @@
                         <div class="text-project">
                             <h3>Interface JavaFX</h3>
                             <span>Java & JavaFX</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Reconnaissance d'empreintes digitales -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/fingerprint_recognition2.png');">
+                                <a onclick="showPopup(5)" class="project-button">Afficher</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3 style="font-size: 2vh;">Reconnaissance d'empreintes digitales</h3>
+                            <span>Python</span>
                         </div>
                     </div>
                 </div>
