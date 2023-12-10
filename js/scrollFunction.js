@@ -147,7 +147,7 @@ addEventListener("scroll", () => {
 
 function animateSkills() {
   // Tableau des pourcentages respectifs
-  const tabPercent = [70, 60, 94, 95, 90, 75, 80, 85, 75, 55, 87, 80];
+  const tabPercent = [70, 60, 94, 95, 90, 75, 80, 85, 75, 78, 87, 80];
 
   // Itération de chaque barre de pourcentage
   for(let i = 0 ; i < tabPercent.length ; i++){
