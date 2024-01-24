@@ -8,18 +8,23 @@
 /* -- Haut de page du portfolio -- */
 
 header{
-    height: 120px;
-    width: 100%;
+    height: 13vh;
+    width: 100vw;
     background-color: transparent;
     display: grid;
     grid-template-columns: auto 1fr;
-    padding: 20px;
+    padding: 2.2vh;
     position: absolute;
     z-index: 100;
 }
 
 header a{
     transition: color 0.5s;
+    text-decoration: none;
+}
+
+header li{
+    transition: all 0.5s;
 }
 
 header li:hover{
@@ -50,20 +55,42 @@ header li:hover{
     z-index: 100;
 }
 
+#header-left h1{
+    font-size: 3.9vh;
+    transition: all 0.5s;
+}
+
+#header-left h1:hover{
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+#header-left h1:active{
+    transform: scale(1.02);
+}
+
+#header-left p{
+    font-size: 2vh;
+}
+
 /* Menu du portfolio */
 #header-right{
     display: flex;
     flex-direction: row;
     justify-content: right;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 3.3vh;
     margin-bottom: auto;
+}
+
+#header-right a{
+    font-size: 2vh;
 }
 
 #header-right span {
     text-decoration: none;
     margin-right: 5vw;
-    padding-bottom: 10px;
+    padding-bottom: 1.1vh;
     font-weight: bold;
     position: relative;
     z-index: 100;
@@ -75,7 +102,7 @@ header li:hover{
     left: 0;
     bottom: 0;
     width: 100%;
-    border-bottom: 2px solid transparent;
+    border-bottom: 0.3vh solid transparent;
     transition: border-color 0.5s;
 }
 
@@ -93,13 +120,13 @@ header li:hover{
     display: none;
     position: fixed;
     left: 0;
-    top: 70px;
+    top: 7.7vh;
     background-color: var(--headerColor);
     padding: 0;
-    width: 1000vh;
+    width: 100vw;
     max-width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 2.2vh;
 }
 
 .submenu-open{
@@ -110,14 +137,14 @@ header li:hover{
 
 .submenu .img{
     border-radius: 50%;
-    margin-right: 60px;
-    width: 130px;
-    height: 130px;
+    margin-right: 6.6vh;
+    width: 14.3vh;
+    height: 14.3vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url(../img/2.png);
-    border: 2px solid black;
+    border: 0.22vh solid black;
     box-shadow: 0 0.7em 1.5em -0.5em black;
     background-color: var(--headerColor);
 }
@@ -131,6 +158,11 @@ header li:hover{
     margin-bottom: auto;
 }
 
+.submenu-content h1{
+    font-size: 3.5vh;
+    margin-top: 1.1vh;
+}
+
 /* Ensemble des projets */
 .submenu-projects{
     display: flex;
@@ -140,30 +172,30 @@ header li:hover{
 
 .submenu-projects ul{
     list-style: none;
-    margin-top: 10px;
-    margin-right: 100px;
+    margin-top: 1vh;
+    margin-right: 11vh;
 }
 
 .submenu-projects li{
-    margin-bottom: 5px;
+    margin-bottom: 0.55vh;
 }
 
 .submenu-projects a{
-    font-size: 120%;
+    font-size: 2.5vh !important;
 }
 
 /* Points pour changer d'onglet */
 .three-points{
-    margin-top: 30px;
+    margin-top: 3.5vh;
     display: flex;
     flex-direction: row;
 }
 
 .point{
-    border-radius:50%;
-    height: 15px;
-    width: 15px;
-    margin-right: 15px;
+    border-radius: 50%;
+    height: 1.65vh;
+    width: 1.65vh;
+    margin-right: 1.65vh;
 }
 
 .point:last-child{
