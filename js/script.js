@@ -24,10 +24,11 @@ function copyMail(){
 // Fonction pour afficher une notification avec un message formaté
 function showToast(message){
     // Initialisation de variables
-    const toast = document.getElementById("toast"); // Toast à afficher
+    const toast = document.getElementById("toast");               // Toast à afficher
     document.getElementById("toast-message").innerHTML = message; // Message du toast
 
     // Animation pour l'affichage du toast
+    toast.style.display = "flex";
     toast.animate([
       {
         opacity: "0",
@@ -43,7 +44,7 @@ function showToast(message){
       },
       {
         opacity: "0",
-        offset: 1
+        offset: 1,
       }],
       {				 
           duration: 5000,
@@ -53,6 +54,10 @@ function showToast(message){
           direction: 'normal',
           fill: 'forwards'
       });
+
+    setTimeout(function () {
+        toast.style.display = "none";
+    }, 5000);
 }
 
 // Function pour changer l'onglet des projets
