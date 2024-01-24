@@ -8,15 +8,20 @@
 /* -- Bas de page du portfolio -- */
   
 footer{
-    padding: 20px 40px 0 40px;
+    padding: 2.2vh 2.16vw 0 2.16vw;
     background-color: var(--footerColor);
-    color: var(--footerContentColor);
     height: auto;
+    width: 100vw;
+}
+
+footer a{
+    color: var(--footerContentColor);
+    transition: all 0.5s;
 }
 
 #footer{
-    border-top: 2px solid var(--footerContentColor);
-    padding: 20px;
+    border-top: 0.22vh solid var(--footerContentColor);
+    padding: 2.2vh;
     display: grid;
     grid-template-columns: 80% 20%;
 }
@@ -33,7 +38,7 @@ footer{
 #footer-left a{
     border: none;
     background-color: transparent;
-    margin-right: 20px;
+    margin-right: 2.16vw;
     color: var(--footerContentColor);
     text-decoration: none;
     cursor: pointer;
@@ -44,8 +49,13 @@ footer{
     margin-right: 0;
 }
 
-#footer-left a:hover, #footer-right a:hover{
+#footer-left a:hover:not(:first-child), #footer-right a:hover{
     color: var(--footerContentColor-hover);
+    transform: scale(1.2);
+}
+
+#footer-left a:active:not(:first-child), #footer-right a:active{
+    transform: scale(1.05);
 }
 
 /* Partie droite du footer */
@@ -58,7 +68,7 @@ footer{
 }
 
 #footer-right a{
-    margin-right: 20px;
+    margin-right: 2.16vw;
     font-size: 25px;
     color: var(--footerContentColor);
 }
