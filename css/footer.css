@@ -11,7 +11,8 @@ footer{
     padding: 2.2vh 2.16vw 0 2.16vw;
     background-color: var(--footerColor);
     height: auto;
-    width: calc(100vw - 2*2.16vw);
+    width: 100vw;
+    max-width: 100%;
 }
 
 footer a{
