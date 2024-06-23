@@ -200,7 +200,7 @@ a{
 #popup-content .subcontent{
     display: grid;
     grid-template-columns: 50% 50%;
-    margin: 4.4vh 0;
+    margin: 2vh 0;
     justify-content: center;
 }
 
@@ -258,12 +258,12 @@ a{
 }
 
 #popup-content .subcontent .content-rightCol h1{
-    font-size: 5vh;
+    font-size: 4vh;
     margin: 0 auto 2.2vh auto;
 }
 
 #popup-content .subcontent .content-rightCol p{
-    font-size: 2.5vh;
+    font-size: 2vh;
     margin-bottom: 1.1vh;
 }
 
