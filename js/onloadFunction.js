@@ -1,11 +1,12 @@
+console.log('1')
 // Fonction pour détecter le chargement de la page
 document.addEventListener("DOMContentLoaded", function () {
   /* Animation du chargement de la page */
   const contentHome = document.querySelector('#home-img');
-
+  console.log('2')
   contentHome.addEventListener('animationend', () => {
     const elt = document.querySelector('#content-home');
-
+    console.log('3')
     elt.style.display = "flex";
     elt.animate([
       {
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       fill: 'none'
     });
   }, { once: true });
-
+  console.log('4')
   // Initialisation de variables
   const quote = document.getElementsByClassName("quote")[0]; // Élément html de la citation
   const author = document.getElementsByClassName("author")[0]; // Élément html de l'auteur
@@ -36,26 +37,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabAuthor = ["John Woods", ]; // Tableau des auteurs
   const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
   const positionImg = ["70%", "top", "top", "center", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
-
+  
   // Choix de la citation avec son auteur
   let rand = Math.floor(Math.random() * tabQuote.length);
   quote.innerHTML = "&rdquo; " + tabQuote[rand] + " &rdquo;";
   author.innerHTML = tabAuthor[rand];
-
+  console.log('5')
   // Choix de l'image en background
   rand = Math.floor(Math.random() * tabImg.length);
   // imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
   // imgBg.style.backgroundPosition = positionImg[rand];
+  console.log('6')
   imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
+  console.log('7')
   imgBg.style.backgroundPosition = "center";
-  console.log('bg5')
+  console.log('8')
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
   for(let i = 0 ; i < percent.length ; i++){
     percent[i].style.width = 0;
   }
+  console.log('9')
 });
+console.log('10')
 
 // Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque l'accès en cachant le contenu
 document.addEventListener("DOMContentLoaded", function () {
