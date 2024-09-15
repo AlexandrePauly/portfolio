@@ -1,12 +1,11 @@
-console.log('1')
 // Fonction pour détecter le chargement de la page
 document.addEventListener("DOMContentLoaded", function () {
   /* Animation du chargement de la page */
   const contentHome = document.querySelector('#home-img');
-  console.log('2')
+
   contentHome.addEventListener('animationend', () => {
     const elt = document.querySelector('#content-home');
-    console.log('3')
+
     elt.style.display = "flex";
     elt.animate([
       {
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
       fill: 'none'
     });
   }, { once: true });
-  console.log('4')
   // Initialisation de variables
   const quote = document.getElementsByClassName("quote")[0]; // Élément html de la citation
   const author = document.getElementsByClassName("author")[0]; // Élément html de l'auteur
@@ -42,25 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let rand = Math.floor(Math.random() * tabQuote.length);
   quote.innerHTML = "&rdquo; " + tabQuote[rand] + " &rdquo;";
   author.innerHTML = tabAuthor[rand];
-  console.log('5')
+
   // Choix de l'image en background
   rand = Math.floor(Math.random() * tabImg.length);
   imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
   imgBg.style.backgroundPosition = positionImg[rand];
-  // console.log('6')
-  // imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
-  // console.log('7')
-  // imgBg.style.backgroundPosition = "center";
-  // console.log('8')
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
   for(let i = 0 ; i < percent.length ; i++){
     percent[i].style.width = 0;
   }
-  console.log('9')
 });
-console.log('10')
 
 // Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque l'accès en cachant le contenu
 document.addEventListener("DOMContentLoaded", function () {
