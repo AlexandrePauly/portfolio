@@ -2,47 +2,37 @@
 document.addEventListener("DOMContentLoaded", function () {
   /* Animation du chargement de la page */
   const contentHome = document.querySelector('#home-img');
-  
-  if (!contentHome) {
-    console.warn('Élément #home-img non trouvé');
-    return;
-  }
-  else {
-    console.log("ok")
-  }
 
   contentHome.addEventListener('animationend', () => {
     const elt = document.querySelector('#content-home');
-
-    if (!elt) {
-      console.warn('Élément #content-home non trouvé');
-      return;
-    }
+    
+    if (!elt) return;
 
     elt.style.display = "flex";
-    elt.animate([
-      {
-        transform: "translateX(1000px)",
-        opacity: "0",
-        offset: 0
-      },
-      {
-        transform: "translateX(0)",
-        opacity: "1",
-        offset: 1
-      }
-    ],{          
-      duration: 1000,
-      easing: 'linear',
-      delay: 0,
-      iterations: 1,
-      direction: 'normal',
-      fill: 'none'
+
+    requestAnimationFrame(() => {
+      elt.animate([
+        {
+          transform: "translateX(1000px)",
+          opacity: "0",
+          offset: 0
+        },
+        {
+          transform: "translateX(0)",
+          opacity: "1",
+          offset: 1
+        }
+      ],{          
+        duration: 1000,
+        easing: 'linear',
+        delay: 0,
+        iterations: 1,
+        direction: 'normal',
+        fill: 'none'
+      });
     });
   }, { once: true });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
   // Initialisation de variables
   const quote = document.getElementsByClassName("quote")[0]; // Élément html de la citation
   const author = document.getElementsByClassName("author")[0]; // Élément html de l'auteur
