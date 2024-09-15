@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const imgBg =  document.getElementsByClassName("inner-shadow")[0] // Élément html de l'image en bakground
   const tabQuote = ["Toujours coder comme si la personne qui finit par maintenir votre code sera un psychopathe violent qui sait où vous habitez."]; // Tableau des citations
   const tabAuthor = ["John Woods", ]; // Tableau des auteurs
-  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
-  const positionImg = ["70%", "top", "top", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
+  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
+  const positionImg = ["70%", "top", "top", "center", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
   
   // Choix de la citation avec son auteur
   let rand = Math.floor(Math.random() * tabQuote.length);
@@ -69,15 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 // Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque l'accès en cachant le contenu
-if (navigator.userAgent.includes("Mobile")
-|| navigator.userAgent.match(/iPhone/i)
-|| navigator.userAgent.match(/webOS/i)
-|| navigator.userAgent.match(/Android/i)
-|| navigator.userAgent.match(/iPad/i)
-|| navigator.userAgent.match(/iPod/i)
-|| navigator.userAgent.match(/BlackBerry/i)
-|| navigator.userAgent.match(/Windows Phone/i)
-|| navigator.userAgent.includes("Safari")) {
+if (navigator.userAgent.includes("Mobile")) {
   document.getElementsByClassName("mobile-hide")[0].style.display = "none";
   document.getElementsByClassName("mobile-message")[0].style.display = "block";
 }
