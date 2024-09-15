@@ -1,3 +1,23 @@
+function getRandomIndex(table) {
+  const randomIndex = Math.floor(Math.random() * table.length);
+  return randomIndex;
+}
+
+function getRandomImage() {
+  // Initialisation de variables
+  const imgBg =  document.getElementsByClassName("inner-shadow")[0] // Élément html de l'image en bakground
+  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
+  const positionImg = ["70%", "top", "top", "center", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
+
+  // Choix de l'image en background
+  index = getRandomIndex(tabImg)
+  imgBg.style.backgroundImage = "url(img/background/" + tabImg[index] + ")";
+  imgBg.style.backgroundPosition = positionImg[index];
+}
+
+// Fonction pour choisir l'image en background au chargement de la page
+window.onload = getRandomImage;
+
 // Fonction pour détecter le chargement de la page
 document.addEventListener("DOMContentLoaded", function () {
   /* Animation du chargement de la page */
@@ -27,24 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
       fill: 'none'
     });
   }, { once: true });
+
   // Initialisation de variables
   const quote = document.getElementsByClassName("quote")[0]; // Élément html de la citation
   const author = document.getElementsByClassName("author")[0]; // Élément html de l'auteur
-  const imgBg =  document.getElementsByClassName("inner-shadow")[0] // Élément html de l'image en bakground
   const tabQuote = ["Toujours coder comme si la personne qui finit par maintenir votre code sera un psychopathe violent qui sait où vous habitez."]; // Tableau des citations
   const tabAuthor = ["John Woods", ]; // Tableau des auteurs
-  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
-  const positionImg = ["70%", "top", "top", "center", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
   
   // Choix de la citation avec son auteur
-  let rand = Math.floor(Math.random() * tabQuote.length);
-  quote.innerHTML = "&rdquo; " + tabQuote[rand] + " &rdquo;";
-  author.innerHTML = tabAuthor[rand];
-
-  // Choix de l'image en background
-  rand = Math.floor(Math.random() * tabImg.length);
-  imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
-  imgBg.style.backgroundPosition = positionImg[rand];
+  index = getRandomIndex(tabQuote);
+  quote.innerHTML = "&rdquo; " + tabQuote[index] + " &rdquo;";
+  author.innerHTML = tabAuthor[index];
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
