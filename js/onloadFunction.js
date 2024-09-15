@@ -3,7 +3,7 @@ function getRandomIndex(table) {
   return randomIndex;
 }
 
-function getRandomImage() {
+function setHomePage() {
   // Initialisation de variables
   const imgBg =  document.getElementsByClassName("inner-shadow")[0] // Élément html de l'image en bakground
   const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
@@ -13,13 +13,7 @@ function getRandomImage() {
   index = getRandomIndex(tabImg)
   imgBg.style.backgroundImage = "url(img/background/" + tabImg[index] + ")";
   imgBg.style.backgroundPosition = positionImg[index];
-}
 
-// Fonction pour choisir l'image en background au chargement de la page
-window.onload = getRandomImage;
-
-// Fonction pour détecter le chargement de la page
-document.addEventListener("DOMContentLoaded", function () {
   /* Animation du chargement de la page */
   const contentHome = document.querySelector('#home-img');
 
@@ -47,7 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
       fill: 'none'
     });
   }, { once: true });
+}
 
+// Fonction pour choisir l'image en background au chargement de la page
+window.onload = setHomePage;
+
+// Fonction pour détecter le chargement de la page
+document.addEventListener("DOMContentLoaded", function () {
   // Initialisation de variables
   const quote = document.getElementsByClassName("quote")[0]; // Élément html de la citation
   const author = document.getElementsByClassName("author")[0]; // Élément html de l'auteur
