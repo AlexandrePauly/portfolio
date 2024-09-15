@@ -42,8 +42,7 @@ header li:hover{
 }
 
 .color{
-    /* color: var(--headerLinksColor); */
-    color: red;
+    color: var(--headerLinksColor);
 }
 
 #header-left{

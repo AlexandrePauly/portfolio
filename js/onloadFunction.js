@@ -5,31 +5,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   contentHome.addEventListener('animationend', () => {
     const elt = document.querySelector('#content-home');
-    
-    if (!elt) return;
 
     elt.style.display = "flex";
-
-    requestAnimationFrame(() => {
-      elt.animate([
-        {
-          transform: "translateX(1000px)",
-          opacity: "0",
-          offset: 0
-        },
-        {
-          transform: "translateX(0)",
-          opacity: "1",
-          offset: 1
-        }
-      ],{          
-        duration: 1000,
-        easing: 'linear',
-        delay: 0,
-        iterations: 1,
-        direction: 'normal',
-        fill: 'none'
-      });
+    elt.animate([
+      {
+        transform: "translateX(1000px)",
+        opacity: "0",
+        offset: 0
+      },
+      {
+        transform: "translateX(0)",
+        opacity: "1",
+        offset: 1
+      }
+    ],{          
+      duration: 1000,
+      easing: 'linear',
+      delay: 0,
+      iterations: 1,
+      direction: 'normal',
+      fill: 'none'
     });
   }, { once: true });
 
