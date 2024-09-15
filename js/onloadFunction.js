@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // imgBg.style.backgroundPosition = positionImg[rand];
   imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
   imgBg.style.backgroundPosition = "center";
+  console.log('bg5')
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
