@@ -54,21 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque l'accès en cachant le contenu
-// document.addEventListener("DOMContentLoaded", function () {
-//   if( navigator.userAgent.match(/iPhone/i)
-//   || navigator.userAgent.match(/webOS/i)
-//   || navigator.userAgent.match(/Android/i)
-//   || navigator.userAgent.match(/iPad/i)
-//   || navigator.userAgent.match(/iPod/i)
-//   || navigator.userAgent.match(/BlackBerry/i)
-//   || navigator.userAgent.match(/Windows Phone/i)
-//   || navigator.userAgent.includes("Safari")){
-//     document.getElementsByClassName("mobile-hide")[0].style.display = "none";
-//     document.getElementsByClassName("mobile-message")[0].style.display = "block";
-//   }
-// });
-
-// Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque l'accès en cachant le contenu
 if (navigator.userAgent.includes("Mobile")) {
   document.getElementsByClassName("mobile-hide")[0].style.display = "none";
   document.getElementsByClassName("mobile-message")[0].style.display = "block";
