@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn('Élément #home-img non trouvé');
     return;
   }
+  else {
+    console.log("ok")
+  }
 
   contentHome.addEventListener('animationend', () => {
     const elt = document.querySelector('#content-home');
