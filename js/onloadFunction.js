@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const imgBg =  document.getElementsByClassName("inner-shadow")[0] // Élément html de l'image en bakground
   const tabQuote = ["Toujours coder comme si la personne qui finit par maintenir votre code sera un psychopathe violent qui sait où vous habitez."]; // Tableau des citations
   const tabAuthor = ["John Woods", ]; // Tableau des auteurs
-  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
-  const positionImg = ["70%", "top", "top", "center", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
+  const tabImg = ["bg1.jpg", "bg2.jpg", "bg4.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg"]; // Tableau des images pour la section d'accueil
+  const positionImg = ["70%", "top", "top", "center", "center", "center", "bottom"]; // Tableau de la position de chaque image
   
   // Choix de la citation avec son auteur
   let rand = Math.floor(Math.random() * tabQuote.length);
@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log('5')
   // Choix de l'image en background
   rand = Math.floor(Math.random() * tabImg.length);
-  // imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
-  // imgBg.style.backgroundPosition = positionImg[rand];
-  console.log('6')
-  imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
-  console.log('7')
-  imgBg.style.backgroundPosition = "center";
-  console.log('8')
+  imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
+  imgBg.style.backgroundPosition = positionImg[rand];
+  // console.log('6')
+  // imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
+  // console.log('7')
+  // imgBg.style.backgroundPosition = "center";
+  // console.log('8')
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
