@@ -44,8 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Choix de l'image en background
   rand = Math.floor(Math.random() * tabImg.length);
-  imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
-  imgBg.style.backgroundPosition = positionImg[rand];
+  // imgBg.style.backgroundImage = "url(img/background/" + tabImg[rand] + ")";
+  // imgBg.style.backgroundPosition = positionImg[rand];
+  imgBg.style.backgroundImage = "url(img/background/bg5.jpg)";
+  imgBg.style.backgroundPosition = "center";
 
   // Initialisation des pourcentages de compétences à 0
   const percent = document.getElementsByClassName("percent");
