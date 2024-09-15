@@ -66,4 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementsByClassName("mobile-hide")[0].style.display = "none";
     document.getElementsByClassName("mobile-message")[0].style.display = "block";
   }
+
+  document.getElementsByClassName("test")[0].innerHTML = navigator.userAgent;
 });

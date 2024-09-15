@@ -36,7 +36,7 @@ footer a{
     margin-bottom: auto;
 }
 
-#footer-left a{
+#footer-left a:not(.language){
     border: none;
     background-color: transparent;
     margin-right: 2.16vw;
@@ -57,6 +57,38 @@ footer a{
 
 #footer-left a:active:not(:first-child), #footer-right a:active{
     transform: scale(1.05);
+}
+
+.language-container {
+    position: relative;
+}
+
+.language-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -5px;
+    left: 0;
+}
+
+.language-btn img{
+    width: 28px;
+    height: 28px;
+}
+
+.language {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language:hover {
+    transform: scale(1.2);
+    color: var(--footerContentColor-hover);
+}
+
+.language:first-of-type {
+    margin: 0 1vh;
 }
 
 /* Partie droite du footer */
