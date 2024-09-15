@@ -61,10 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
   || navigator.userAgent.match(/iPad/i)
   || navigator.userAgent.match(/iPod/i)
   || navigator.userAgent.match(/BlackBerry/i)
-  || navigator.userAgent.match(/Windows Phone/i)){
+  || navigator.userAgent.match(/Windows Phone/i)
+  || navigator.userAgent.includes("Mobile")){
     document.getElementsByClassName("mobile-hide")[0].style.display = "none";
     document.getElementsByClassName("mobile-message")[0].style.display = "block";
   }
 });
-
-document.getElementsByClassName("test")[0].innerHTML = navigator.userAgent;
