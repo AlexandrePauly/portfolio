@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">  <!-- Feuille de style générale et partie responsive -->
+    <link rel="stylesheet" href="css/header.css"> <!-- Feuille de style du header -->
+    <link rel="stylesheet" href="css/main.css">   <!-- Feuille de style du main -->
+    <link rel="stylesheet" href="css/footer.css"> <!-- Feuille de style du footer -->
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"/>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script> <!-- Fonctions générales -->
+    <script src="js/buttonForm.js"></script> <!-- Actions du bouton -->
+    <script src="js/scrollFunction.js"></script> <!-- Fonctions réagissant au scroll sur la page -->
+    <script src="js/onloadFunction.js" async></script> <!-- Fonctions réagissant au chargement de la page -->
+    <script src="js/img_size.js"></script> <!-- Fonctions pour aggrandir les images avec un click -->
+    <script src="js/popupProject_en.js"></script> <!-- Fonctions pour afficher une popup avec un click -->
+
+    <!-- Logo Header -->
+    <!-- <link rel="shortcut icon" href="img/head.png" type="image/x-icon"> -->
+
+    <title>Portfolio - Alexandre Pauly</title>
+</head>
+<body onload="countMonth()">
+    <div class="mobile-hide">
+        <!-- Haut de page du portfolio -->
+        <header>
+            <div id="header-left">
+                <a class="color" href="#"><h1>Alexandre Pauly</h1></a>
+                <p class="color">Portfolio</p>
+            </div>
+            
+            <!-- Menu du portfolio -->
+            <nav id="header-right">
+                <span><a class="color" href="#content-about">About</a></span>
+                <span><a class="color" href="#content-skills">Skills</a></span>
+
+                <div class="dropdown" onmouseover="toggleSubmenu(true)" onmouseout="toggleSubmenu(false)">
+                    <span id="project"><a class="color" href="#content-projects">Project</a></span>
+
+                    <!-- Sous-menu pour l'élément Projets - Non affichable lorsque l'on est en haut de l'application -->
+                    <div class="submenu">
+                        <div class="img"></div>
+
+                        <!-- Premier onglet -->
+                        <div class="submenu-content">
+                            <h1>Web Development</h1>
+
+                            <!-- Ensemble des projets en Développement Web & Java -->
+                            <div class="submenu-projects">
+                                <ul>
+                                    <li><a class="color" href="#content-projects">E-commerce website</a></li>
+                                    <li><a class="color" href="#content-projects">Forms</a></li>
+                                    <li><a class="color">Travel diary</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a class="color" href="#content-projects">CV & Posters</a></li>
+                                    <li><a class="color" href="#content-projects">Portfolio</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>  
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>                                                      
+                            </div>
+
+                            <!-- Points pour changer d'onglet -->
+                            <div class="three-points">
+                                <div class="point" onclick="changeProjects(0)" style="background-color: #6B7E65; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(1)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Deuxième onglet -->
+                        <div class="submenu-content" style="display: none;">
+                            <h1>Mobile apps</h1>
+
+                            <!-- Ensemble des projets en Applications mobiles -->
+                            <div class="submenu-projects">
+                                <ul>
+                                    <li><a class="color" href="#content-projects">Workout log</a></li>
+                                    <li><a class="color">Party games</a></li>
+                                    <li  class="vide"><a class="color">--</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>  
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>                                                      
+                            </div>
+
+                            <!-- Points pour changer d'onglet -->
+                            <div class="three-points">
+                                <div class="point" onclick="changeProjects(0)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(1)" style="background-color: #6B7E65; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Troisième onglet -->
+                        <div class="submenu-content" style="display: none;">
+                            <h1>Various</h1>
+
+                            <!-- Ensemble des projets en Applications mobiles -->
+                            <div class="submenu-projects">
+                                <ul>
+                                    <li><a class="color" href="https://github.com/AlexandrePauly/C-Deminer" target="_blank">Deminer</a></li>
+                                    <li><a class="color" href="#content-projects">Finger print recognition</a></li>
+                                    <li><a class="color" href="#content-projects">JavaFX interface</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color" href="#content-projects">Tic-Tac-Toe</a></li>
+                                    <li><a class="color" href="https://github.com/AlexandrePauly/python-projects" target="_blank">Python projects</a></li>
+                                    <li><a class="color" href="#content-projects">Edge detection</a></li>
+                                </ul>
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>  
+                                <ul class="vide">
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                    <li><a class="color">--</a></li>
+                                </ul>                                                      
+                            </div>
+
+                            <!-- Points pour changer d'onglet -->
+                            <div class="three-points">
+                                <div class="point" onclick="changeProjects(0)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(1)" style="background-color: #AAC2A2; cursor: pointer;"></div>
+                                <div class="point" onclick="changeProjects(2)" style="background-color: #6B7E65; cursor: pointer;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span><a class="color" href="#content-contact">Contact</a></span>
+            </nav>
+        </header>
+
+        <!-- Page Accueil du portfolio -->
+        <section id="home-img">
+            <div class="inner-shadow" style="background-image: url(img/background/bg5.jpg)">
+                <div id="content-home">
+                    <h1>Alexandre Pauly</h1>
+                    <p>Data engineering student</p>
+                    <div>
+                        <a href="#content-about">Who I am ?</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenu du portfolio -->
+        <main>
+            <!-- Page À propos du portfolio -->
+            <div id="content-about" class="content">
+                <h1>About me</h1>
+
+                <div class="subcontent">
+                    <!-- Partie gauche de la page À propos -->
+                    <div class="content-leftCol">
+                        <img id="img-about" src="img/1.jpg" alt="">
+                    </div>
+
+                    <!-- Partie droite de la page À propos -->
+                    <aside class="content-rightCol"> 
+                        <p>Hello! My name is Alexandre Pauly, and I am currently a second-year student in Mathematical Engineering and Computer Science at Cy Tech, a school located in Pau. Although my academic background is centered on mathematics, I have recently discovered my passion for development and programming.</p>
+                        <p>Over the past <span id="about-month"></span> few months, I have dedicated a significant amount of my time to creating a variety of projects, ranging from a personal website to interactive applications. This self-taught journey has allowed me to acquire new skills and explore areas that differ from my academic training.</p>
+                        <p>My enthusiasm for computer science dates back to my youth, where I always dreamed of creating my own applications and websites. Today, I am finally bringing these projects to life on a personal level while continuing to develop my skills.</p>
+                        <p>Even though my academic path is focused on data, web and application development has become a true passion of mine, one that I hope to explore further in the future. On my portfolio, you’ll find a selection of my projects and experiences during this exciting period of discovery and learning. Welcome to my digital world!</p>
+                    </aside>
+                </div>
+            </div>
+
+            <!-- Bannière inter-sections entre la section À propos et Compétences -->
+            <div class="banner">
+                <div class="content-banner">
+                    <h1>Currently :</h1>
+                    <p>CY Tech student on a work-study program with Safran Helicopter Engines <div id="date-alternance" >from 2024 september to 2025 august</div></p>
+                </div>
+            </div>
+
+            <!-- Page Compétences du portfolio -->
+            <div id="content-skills" class="content">
+                <h1>Skills</h1>
+                <p>They are constantly being improved because, for me, the joy of learning and constantly progressing is crucial, all the more so when you are involved, curious and passionate.</p>
+
+                <div class="subcontent">
+                    <!-- Partie gauche de la page Compétences -->
+                    <div class="content-leftCol">
+                        <!-- Langages Back-end -->
+                        <h3>Back-end</h3>
+                        <div class="skills">
+                            <h4>PHP</h4>
+                            <div class="content-percent"><div class="percent" style="width: 70%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>NodeJS</h4>
+                            <div class="content-percent"><div class="percent" style="width: 60%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>SQL / MYSQL / Sequelize / Access</h4>
+                            <div class="content-percent"><div class="percent" style="width: 94%;"></div></div>
+                        </div>
+
+                        <!-- Langages Front-end -->
+                        <h3>Front-end</h3>
+                        <div class="skills">
+                            <h4>HTML</h4>
+                            <div class="content-percent"><div class="percent" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>CSS</h4>
+                            <div class="content-percent"><div class="percent" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>JavaScript / TypeScript</h4>
+                            <div class="content-percent"><div class="percent" style="width: 75%;"></div></div>
+                        </div>
+
+                        <!-- CMS -->
+                        <h3>CMS</h3>
+                        <div class="skills">
+                            <h4>WordPress</h4>
+                            <div class="content-percent"><div class="percent" style="width: 80%;"></div></div>
+                        </div>
+
+                        <!-- Langages divers -->
+                        <h3>Various</h3>
+                        <div class="skills">
+                            <h4>C / C++</h4>
+                            <div class="content-percent"><div class="percent" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>Java</h4>
+                            <div class="content-percent"><div class="percent" style="width: 75%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>Python</h4>
+                            <div class="content-percent"><div class="percent" style="width: 91%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>Angular / React JS</h4>
+                            <div class="content-percent"><div class="percent" style="width: 82%;"></div></div>
+                        </div>
+                        <div class="skills">
+                            <h4>Windows / Linux</h4>
+                            <div class="content-percent"><div class="percent" style="width: 80%;"></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Partie droite de la page Compétences -->
+                    <aside class="content-rightCol">
+                        <img id="CV" src="img/en/CV_Alexandre_Pauly.jpg" alt="" class="expandabled-img">
+                        
+                        <!-- Bouton pour télécharger le CV -->
+                        <a class="download-CV" href="pdf/en/CV_Alexandre_Pauly.pdf" target="_blank">
+                            <!-- <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M1 14.5a6.496 6.496 0 0 1 3.064-5.519 8.001 8.001 0 0 1 15.872 0 6.5 6.5 0 0 1-2.936 12L7 21c-3.356-.274-6-3.078-6-6.5zm15.848 4.487a4.5 4.5 0 0 0 2.03-8.309l-.807-.503-.12-.942a6.001 6.001 0 0 0-11.903 0l-.12.942-.805.503a4.5 4.5 0 0 0 2.029 8.309l.173.013h9.35l.173-.013zM13 12h3l-4 5-4-5h3V8h2v4z" fill="currentColor"></path></svg> -->
+                            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                            <span>Download my CV</span>
+                        </a>
+                    </aside>
+                </div>
+            </div>
+
+            <!-- Bannière inter-sections entre la section Compétences et Projets -->
+            <div class="banner">
+                <div class="content-banner" id="quote">
+                    <p class="quote"></p>
+                    <p class="author"></p>
+                </div>
+            </div>
+            
+            <!-- Page de projets du portfolio -->
+            <div id="content-projects" class="content">
+                <h1>Portfolio</h1>
+                <p>Below are a few examples of the work I've done during my training or, more importantly, personally. The source codes can be found on my <a href="https://www.github.com/AlexandrePauly" target="_blank" title="Vers le compte GitHub"><b>github</b></a>.</p>
+
+                <div class="subcontent">
+                    <!-- Affichage des projets - Site E-Commerce -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img" >
+                            <div class="img-project" style="--image-project: url('../img/projects/web-site2.png');">
+                                <!-- Bouton pour accéder aux informations détaillées du projet - Affichage d'une popup -->
+                                <a onclick="showPopup(0)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>E-Commerce website</h3>
+                            <span>HTML, CSS, JS, PHP & MYSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Formulaires -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/gift-card.png');">
+                                <a onclick="showPopup(1)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Forms</h3>
+                            <span>HTML, CSS & JS form</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Portfolio -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/portfolio4.png'); background-position: right;">
+                                <a onclick="showPopup(2)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Portfolio</h3>
+                            <span>HTML, CSS & JS</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Modèles de CV -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/cv.png');">
+                                <a onclick="showPopup(3)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>CV & Posters</h3>
+                            <span>HTML, CSS & JS</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Interface JavaFX -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/javafx2.png');">
+                                <a onclick="showPopup(4)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>JavaFX Interface</h3>
+                            <span>Java & JavaFX</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Reconnaissance d'empreintes digitales -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/fingerprint_recognition2.png');">
+                                <a onclick="showPopup(5)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Fingerprint recognition</h3>
+                            <span>Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Reconnaissance d'empreintes digitales -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/tic-tac-toe1.png');">
+                                <a onclick="showPopup(6)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Tic-Tac-Toe</h3>
+                            <span>Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Détection de bordures de routes et rivières -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/edge_detection_2.png');">
+                                <a onclick="showPopup(7)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Edge detection</h3>
+                            <span>Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Affichage des projets - Carnet de musculation -->
+                    <div class="content-project">
+                        <!-- Image du projet -->
+                        <div class="container-img">
+                            <div class="img-project" style="--image-project: url('../img/projects/app_mobile_6.png'); background-color: #f3f3f3;">
+                                <a onclick="showPopup(8)" class="project-button">Display</a>
+                            </div>
+                        </div>
+
+                        <!-- Titre du projet -->
+                        <div class="text-project">
+                            <h3>Workout log</h3>
+                            <span>React JS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page de contact du portfolio -->
+            <div id="content-contact" class="content">
+                <div id="subcontent-contact">
+                    <h1>Contact me !</h1>
+
+                    <!-- Formulaire de contact -->
+                    <form>
+                        <!-- Champ de nom et de prénom -->
+                        <div class="form-input">
+                            <input class="name" name="name" placeholder="Name" required/>
+                            <input class="surname" name="surname" placeholder="Surname" required/>
+                        </div>
+        
+                        <!-- Champ de mail et de téléphone -->
+                        <div class="form-input">
+                            <input class="email" name="emailaddress" placeholder="exemple@mail.com" type="email" required/>
+                            <input class="phone" name="phone" placeholder="01 02 03 04 05" type="number" required/>
+                        </div>
+        
+                        <input class="object" type="text" name="object" placeholder="Message object" required/>
+        
+                        <!-- Champ de message -->
+                        <textarea class="message" name="subject" placeholder="Enter your message..." required></textarea>
+        
+                        <!-- Bouton d'envoie du mail -->
+                        <div id="form-button">
+                            <button class="expand" onclick="checkForm(event)">
+                                Send
+                                <span class="expand-icon expand-hover">
+                                    <svg class="first" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 32 32" version="1.1">
+                                        <path d="M8.489 31.975c-0.271 0-0.549-0.107-0.757-0.316-0.417-0.417-0.417-1.098 0-1.515l14.258-14.264-14.050-14.050c-0.417-0.417-0.417-1.098 0-1.515s1.098-0.417 1.515 0l14.807 14.807c0.417 0.417 0.417 1.098 0 1.515l-15.015 15.022c-0.208 0.208-0.486 0.316-0.757 0.316z" />
+                                    </svg>
+                                    <span class="loader"></span>
+                                    <svg class="second" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+                                        <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 5L8 15l-5-4" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- Notifications de messages -->
+        <section id="toast">
+            <div id="toast-content">
+                <div id="icon">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <p id="toast-message"></p>
+            </div>
+        </section>
+
+        <!-- Flèche pour remonter en haut de la page -->
+        <button id="scroll-arrow">
+            <i class="fa fa-arrow-up" aria-hidden="true" onclick="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;"></i>
+        </button>
+
+        <!-- Popup du détail des projets -->
+        <section id="popup">
+            <div id="popup-container">
+                <div id="popup-header">
+                    <span onclick="hidePopup('close')" class="close">&times;</span>
+                </div>
+
+                <!-- Le contenu dépend de l'élément cliqué -->
+                <div id="popup-content" class="content">
+                    <div class="subcontent">
+                        <!-- Affichage des projets - -->
+                        <div class="content-leftCol">
+                            <!-- Image du projet -->
+                            <div class="slider"></div>
+                        </div>
+                        <div class="content-rightCol">
+                            <!-- Titre du projet -->
+                            <h1></h1>
+
+                            <!-- Détails du projet -->
+                            <p></p>
+
+                            <!-- Objectifs du projet -->
+                            <p><b>Goal : </b><span></span></p>
+
+                            <!-- Lien vers le code source du projet -->
+                            <a href="#" title="Lien vers le code source" class="link-button">
+                                <span class="link-button-icon">
+                                    <i class="bx bx-link-alt"></i>
+                                </span>
+                                Source code
+                            </a>
+
+                            <!-- Languages utilisés pour le projet -->
+                            <div class="languages-used"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Affichage en grand des images -->
+        <figure id="imgExpand"><img src="" alt=""></figure>
+
+        <!-- Bas de page du portfolio -->
+        <footer>
+            <div id="footer">
+                <!-- Partie gauche du footer -->
+                <div id="footer-left">
+                    <a style="cursor: default;">&copy; 2023 Alexandre Pauly</a>
+                    <a onclick="onSecurity(this)">Licence</a>
+                    <a id="security" onclick="onSecurity(this)">Security</a>
+                    <a href="pdf/legalNotices.pdf" target="_blank">Legal information</a>
+                    <a href="#content-contact">Contact</a>
+                    <a href="/fr.html"><i class="fa fa-language" aria-hidden="true"></i> French version</a>
+                </div>
+
+                <!-- Partie droite du footer -->
+                <div id="footer-right">
+                    <a href="https://www.linkedin.com/in/pauly-alexandre" target="_blank" title="To the Linkedin page"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="#footer-right" onclick="copyMail()"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                    <a href="https://www.github.com/AlexandrePauly" target="_blank" title="To the GitHub account"><i class="fa fa-github" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="mobile-message">
+        <p>This site is intended for computers.</p>
+    </div>
+</body>
+
+</html>

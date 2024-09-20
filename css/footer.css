@@ -59,38 +59,6 @@ footer a{
     transform: scale(1.05);
 }
 
-.language-container {
-    position: relative;
-}
-
-.language-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: -5px;
-    left: 0;
-}
-
-.language-btn img{
-    width: 28px;
-    height: 28px;
-}
-
-.language {
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.language:hover {
-    transform: scale(1.2);
-    color: var(--footerContentColor-hover);
-}
-
-.language:first-of-type {
-    margin: 0 1vh;
-}
-
 /* Partie droite du footer */
 #footer-right{
     display: flex;
