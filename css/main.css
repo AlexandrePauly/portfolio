@@ -549,6 +549,10 @@
     width: 100%;
 }
 
+.error {
+    border: 2px solid red !important;
+}
+
 /* Permet de cacher les flèches pour incrémenter et décrémenter sur Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

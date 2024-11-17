@@ -443,20 +443,20 @@
                     <form>
                         <!-- Champ de nom et de prénom -->
                         <div class="form-input">
-                            <input class="name" name="name" placeholder="Nom" required/>
-                            <input class="surname" name="surname" placeholder="Prénom" required/>
+                            <input class="name" name="name" placeholder="Nom *" required/>
+                            <input class="surname" name="surname" placeholder="Prénom *" required/>
                         </div>
         
                         <!-- Champ de mail et de téléphone -->
                         <div class="form-input">
-                            <input class="email" name="emailaddress" placeholder="exemple@mail.com" type="email" required/>
-                            <input class="phone" name="phone" placeholder="01 02 03 04 05" type="number" required/>
+                            <input class="email" id="email" name="emailaddress" placeholder="exemple@mail.com *" type="email" required/>
+                            <input class="phone" name="phone" placeholder="01 02 03 04 05 *" type="number" required/>
                         </div>
         
-                        <input class="object" type="text" name="object" placeholder="Objet du message" required/>
+                        <input class="object" type="text" name="object" placeholder="Objet du message *" required/>
         
                         <!-- Champ de message -->
-                        <textarea class="message" name="subject" placeholder="Entrez votre message..." required></textarea>
+                        <textarea class="message" name="subject" placeholder="Entrez votre message... *" required></textarea>
         
                         <!-- Bouton d'envoie du mail -->
                         <div id="form-button">
