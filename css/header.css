@@ -55,20 +55,6 @@ header li:hover{
     z-index: 100;
 }
 
-#header-left h1{
-    font-size: 3.9vh;
-    transition: all 0.5s;
-}
-
-#header-left h1:hover{
-    opacity: 0.8;
-    transform: scale(1.05);
-}
-
-#header-left h1:active{
-    transform: scale(1.02);
-}
-
 #header-left p{
     font-size: 2vh;
 }
@@ -143,7 +129,7 @@ header li:hover{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../img/2.png);
+    background-image: url(../img/profile_picture.png);
     border: 0.22vh solid black;
     box-shadow: 0 0.7em 1.5em -0.5em black;
     background-color: var(--headerColor);
