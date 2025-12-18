@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light/Dark Mode with Lamp</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #081b29;
+            color: #333;
+            overflow: hidden;
+            transition: background 0.8s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body.dark-mode {
+            background: #020408;
+        }
+
+        /* Effet de lampe */
+        .lamp-light {
+            position: fixed;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                ellipse at center top,
+                rgba(255, 245, 200, 0.4) 0%,
+                rgba(255, 245, 200, 0.25) 15%,
+                rgba(255, 245, 200, 0.1) 30%,
+                transparent 50%
+            );
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 500;
+        }
+
+        body.light-mode .lamp-light {
+            opacity: 1;
+        }
+
+        /* Overlay sombre pour le mode nuit */
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 499;
+        }
+
+        body.dark-mode .dark-overlay {
+            opacity: 1;
+        }
+
+        /* Livre démo */
+        .wrapper {
+            position: relative;
+            width: 66rem;
+            height: 50rem;
+            padding: 2rem;
+            perspective: 250rem;
+            z-index: 10;
+        }
+
+        .book {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background: #fdfaf5;
+            box-shadow: 
+                0 0 2rem rgba(0, 0, 0, 0.3),
+                0 0 4rem rgba(0, 0, 0, 0.2);
+            border-radius: 0.5rem;
+            padding: 3rem;
+            transition: box-shadow 0.8s ease, transform 0.3s ease;
+        }
+
+        body.light-mode .book {
+            box-shadow: 
+                0 0 3rem rgba(255, 245, 200, 0.6),
+                0 0 6rem rgba(255, 245, 200, 0.3),
+                0 0 2rem rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .book {
+            box-shadow: 
+                0 0 1rem rgba(0, 0, 0, 0.8),
+                0 0 3rem rgba(0, 0, 0, 0.5);
+        }
+
+        .book h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .book p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Menu d'action */
+        .menu {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 1.5rem;
+            border-radius: 3rem;
+            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode .menu {
+            background: rgba(30, 30, 40, 0.95);
+            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.5);
+        }
+
+        .link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        body.dark-mode .link {
+            color: #fff;
+        }
+
+        .link:hover {
+            background: rgba(17, 56, 72, 0.1);
+            transform: translateY(-3px);
+        }
+
+        body.dark-mode .link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+        }
+
+        .link-title {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Animation de l'icône */
+        .link-icon i {
+            transition: transform 0.3s ease;
+        }
+
+        .link:hover .link-icon i {
+            transform: scale(1.2);
+        }
+
+        /* Animation spéciale pour le bouton light/dark */
+        #lightToggle .link-icon i {
+            animation: none;
+        }
+
+        body.light-mode #lightToggle .link-icon i {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px rgba(255, 200, 0, 0.8));
+            }
+            50% {
+                filter: drop-shadow(0 0 15px rgba(255, 200, 0, 1));
+            }
+        }
+
+        /* Rayons de lumière subtils */
+        .light-rays {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            z-index: 498;
+        }
+
+        body.light-mode .light-rays {
+            opacity: 0.3;
+        }
+
+        .light-rays::before,
+        .light-rays::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 245, 200, 0.3) 0%,
+                transparent 50%
+            );
+            animation: ray 4s ease-in-out infinite;
+        }
+
+        .light-rays::after {
+            animation-delay: 2s;
+            margin-left: 200px;
+        }
+
+        @keyframes ray {
+            0%, 100% {
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Effets lumineux -->
+    <div class="lamp-light"></div>
+    <div class="dark-overlay"></div>
+    <div class="light-rays"></div>
+
+    <!-- Livre -->
+    <div class="wrapper">
+        <div class="book">
+            <div>
+                <h1>Portfolio - Alexandre Pauly</h1>
+                <p>
+                    Hi! My name is Alexandre, and I'm passionate about data, innovation, and digital transformation.
+                    Driven by curiosity, I love exploring new horizons, whether through my projects or my travels.
+                </p>
+                <br>
+                <p>
+                    Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.
+                </p>
+                <br>
+                <p>
+                    Click on the sun/moon icon below to toggle the lighting effect!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu d'action -->
+    <div id="actionMenu" class="menu">
+        <a href="#" class="link">
+            <span class="link-icon">
+                <i class="bx bx-home-alt-2"></i>
+            </span>
+            <span class="link-title">Home</span>
+        </a>
+        <a href="#" class="link">
+            <span class="link-icon">
+                <i class="bx bx-book-content"></i>
+            </span>
+            <span class="link-title">Mode</span>
+        </a>
+        <a href="#" class="link" id="lightToggle">
+            <span class="link-icon">
+                <i class="bx bx-sun"></i>
+            </span>
+            <span class="link-title">Light</span>
+        </a>
+        <a href="#" class="link">
+            <span class="link-icon">
+                <i class="bx bx-globe"></i>
+            </span>
+            <span class="link-title">Translate</span>
+        </a>
+    </div>
+
+    <script>
+        const lightToggle = document.getElementById('lightToggle');
+        const icon = lightToggle.querySelector('i');
+        const title = lightToggle.querySelector('.link-title');
+        const body = document.body;
+
+        // État initial (mode sombre)
+        let isLightMode = false;
+
+        lightToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            isLightMode = !isLightMode;
+            
+            if (isLightMode) {
+                // Activer le mode lumière
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+                icon.classList.remove('bx-sun');
+                icon.classList.add('bx-moon');
+                title.textContent = 'Dark';
+            } else {
+                // Activer le mode sombre
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                icon.classList.remove('bx-moon');
+                icon.classList.add('bx-sun');
+                title.textContent = 'Light';
+            }
+        });
+
+        // Animation au chargement
+        window.addEventListener('load', () => {
+            body.classList.add('dark-mode');
+        });
+    </script>
+</body>
+</html>
