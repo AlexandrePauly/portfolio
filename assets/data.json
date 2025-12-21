@@ -1,10 +1,277 @@
 {
   "fr": {
+    "infoText": "🔦 Déplacez votre souris pour explorer avec la lampe torche",
     "jobTitle": "Étudiant en Data Science",
-    "aboutText": "Je suis un développeur passionné."
+    "aboutText": "Salut ! Je m'appelle Alexandre et je suis passionné par la data, l'innovation et la transformation digitale. Toujours curieux, j'aime explorer de nouveaux horizons, que ce soit à travers mes projets ou mes voyages. Aujourd'hui, je veux mettre à profit mon profil technique, ma vision business et ma créativité pour contribuer à des projets qui ont du sens.",
+    "downloadCVTitle": "Mon CV !",
+    "downloadCVLink": "assets/pdf/fr/CV_Alexandre_Pauly.pdf",
+    "workExperienceTitle": "Expérience professionnelle",
+    "workExperience": [
+      {
+        "title": "Alternance Data management & Transformation Digitale",
+        "company": "Safran Helicopter Engines | Tarnos & Bordes",
+        "dates": "Sep 2024 - Sep 2026",
+        "description": "Amélioration de la maturité des produits numériques, création d'outils de suivi et d'indicateurs de pilotage pour une meilleure gestion des données, collaboration avec différentes équipes pour harmoniser le catalogage des données (Collibra), et animation d'une communauté de Data Stewards."
+      },
+      {
+        "title": "Automatisation de workflows",
+        "company": "Total Energies | Pau",
+        "dates": "Juillet 2024",
+        "description": "Développement de scripts Ansible pour l'automatisation de processus sur la plateforme ServiceNow."
+      },
+      {
+        "title": "Stage au laboratoire digital ceclant",
+        "company": "Marine Nationale | Brest",
+        "dates": "Juin 2023 - Août 2023",
+        "description": "Développement d'une application web en Angular et Node.js (frameworks DevExtreme et Sequelize)."
+      }
+    ],
+    "educationTitle": "Formation",
+    "education": [
+      {
+        "title": "MSc Start Up & Transformation Digitale",
+        "school": "INSEEC | Bordeaux",
+        "dates": "2025 - 2026",
+        "description": "Mastère spécialisé en management et innovation digitale, en complément d'un profil ingénieur technique."
+      },
+      {
+        "title": "Diplôme d'ingénieur en Mathématiques Appliquées - Spécialisation Big Data",
+        "school": "CY Tech | Pau",
+        "dates": "2022 - 2025",
+        "description": "Diplôme en Data Science : traitement d'images, modèles prédictifs et d'apprentissage, classification et solides compétences techniques transverses."
+      },
+      {
+        "title": "Programme d'échange",
+        "school": "NYCU | Taïwan",
+        "dates": "Fév 2024 - Juin 2024",
+        "description": "Semestre à l'étranger : approfondissement en Data Science au travers de nombreux projets."
+      },
+      {
+        "title": "Licence MIASHS",
+        "school": "UPPA | Pau",
+        "dates": "2019 - 2022",
+        "description": "Licence pluridisciplinaire en mathématiques, informatique, économie et comptabilité."
+      }
+    ],
+    "skillsTitle": "Mes compétences",
+    "skillsDataScience": "Data Science & Analyse",
+    "skillsWebDev": "Développement Web",
+    "skillsProgramming": "Programmation",
+    "skillsTools": "Outils & Environnements",
+    "challengesTitle": "Mes prochains défis",
+    "challenges": [
+      {
+        "title": "Application Mobile",
+        "description": "Développer ma propre application de jeu de soirée mobile.",
+        "icon": "bx-code-alt"
+      },
+      {
+        "title": "Course à pied",
+        "description": "Compléter tous les super-halfs dans les 5 prochaines années.",
+        "icon": "bx-run",
+        "btnText": "En savoir plus",
+        "btnLink": ""
+      },
+      {
+        "title": "Powerlifting",
+        "description": "Atteindre un total de 600 kg en powerlifting dans les prochaines années.",
+        "icon": "bx-dumbbell"
+      }
+    ],
+    
+    "latestProjectsTitle": "Derniers projets",
+    "projects": [
+      {
+        "title": "Journal d'entraînement",
+        "context": "Première application mobile",
+        "tags": ["React Native", "Mobile", "Base de données"],
+        "description": "Ce projet est à usage personnel, l'idée derrière cette application est de m'aider à gérer mes routines d'entraînement. À l'avenir, j'aimerais l'étendre en une application multi-sport pour suivre les performances.",
+        "img": "assets/img/projects/app_mobile.png",
+        "sourceCode": "https://github.com/AlexandrePauly/mobile-app",
+        "moreProjects": "https://github.com/AlexandrePauly",
+        "previewLink": ""
+      },
+      {
+        "title": "Site e-commerce",
+        "context": "Premiers pas en développement web",
+        "tags": ["HTML", "CSS", "JS", "PHP", "MySQL"],
+        "description": "Dans ce projet de développement d'une application web pour gérer un site e-commerce, l'idée était de créer une solution interactive et fonctionnelle. Attiré par le web, j'ai cherché à développer autant de compétences que possible sur ce projet : programmation, création de contenu, design, retouche photo, etc.",
+        "img": "assets/img/projects/web-site.png",
+        "sourceCode": "https://github.com/AlexandrePauly/Web-site",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Dashboard Power BI",
+        "context": "Projet de fin d'études",
+        "tags": ["Power BI", "Excel", "Odoo"],
+        "description": "Ce projet s'inscrit dans une démarche de développement de compétences en Power BI, combinant Business Intelligence et Transformation Digitale. Il représentait une opportunité concrète d'appliquer ces compétences au sein d'une entreprise que je connais bien et pour laquelle j'ai un réel intérêt.",
+        "img": "assets/img/projects/skinlys_fabrication.png",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Détection de contours",
+        "context": "Défi data pendant le programme d'échange",
+        "tags": ["Data Science", "Python", "IA"],
+        "description": "Développement d'un système de détection automatique de contours de routes et de rivières à partir d'images acquises par drone, utilisant des techniques d'apprentissage profond.",
+        "img": "assets/img/projects/edge_detection.png",
+        "sourceCode": "https://github.com/AlexandrePauly/edges-detection",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Projet Pardessa",
+        "context": "Hackathon en gestion de projet",
+        "tags": ["Cadrage de projet", "WBS", "GANTT", "Zoning"],
+        "description": "Ce projet a été mené par deux étudiants qui souhaitent monter une entreprise autour d'activités à Paris. Ma contribution ? Aider au cadrage du projet en établissant un business plan, WBS, feuille de route, charte graphique, zoning, etc.",
+        "img": "assets/img/projects/pardessa_zoning.png",
+        "moreProjects": "https://www.linkedin.com/in/pauly-alexandre/"
+      }
+    ],
+    "buttonSourceCode": "Code source",
+    "buttonMoreProjects": "Plus de projets",
+    "buttonPreview": "Voir démo",
+    "buttonHome": "Accueil",
+    "buttonMode": "Mode",
+    "buttonVolume": "Volume",
+    "buttonLight": "Clair",
+    "buttonDark": "Sombre",
+    "buttonTranslate": "Traduire",
+    "buttonProfile": "Profil"
   },
   "en": {
+    "infoText": "🔦 Move your mouse to explore with the torchlight",
     "jobTitle": "Data science student",
-    "aboutText": "I am a passionate developer."
+    "aboutText": "Hi! My name is Alexandre, and I'm passionate about data, innovation, and digital transformation. Driven by curiosity, I love exploring new horizons, whether through my projects or my travels. Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.",
+    "downloadCVTitle": "Download CV",
+    "downloadCVLink": "assets/pdf/en/CV_Alexandre_Pauly.pdf",
+    "workExperienceTitle": "Work Experience",
+    "workExperience": [
+      {
+        "title": "Data management & Digital Transformation Apprenticeship",
+        "company": "Safran Helicopter Engines | Tarnos & Bordes",
+        "dates": "Sep 2024 - Sep 2026",
+        "description": "Improving the maturity of digital products, building monitoring tools and steering indicators for better data management, collaborating with different teams to align data cataloging (Collibra), and leading a Data Steward community."
+      },
+      {
+        "title": "Workflow automation",
+        "company": "Total Energies | Pau",
+        "dates": "July 2024",
+        "description": "Development of Ansible scripts for process automation on the ServiceNow platform."
+      },
+      {
+        "title": "Internship at ceclant digital laboratory",
+        "company": "French Navy | Brest",
+        "dates": "June 2023 - Aug 2023",
+        "description": "Web application development in Angular and Node.js (DevExtreme and Sequelize frameworks)."
+      }
+    ],
+    "educationTitle": "Education",
+    "education": [
+      {
+        "title": "MSc Start Up & Digital Transformation",
+        "school": "INSEEC | Bordeaux",
+        "dates": "2025 - 2026",
+        "description": "Master's program in digital innovation and business management, complementing a technical engineering background."
+      },
+      {
+        "title": "Engineering degree in Applied Mathematics - Big Data specialisation",
+        "school": "CY Tech | Pau",
+        "dates": "2022 - 2025",
+        "description": "Degree in Data Science: image processing, predictive and machine learning models, classification, and strong cross-disciplinary technical skills."
+      },
+      {
+        "title": "Exchange Program",
+        "school": "NYCU | Taiwan",
+        "dates": "Feb 2024 - June 2024",
+        "description": "International semester focused on knowledge in Data Science through various projects."
+      },
+      {
+        "title": "MIASHS degree at the university",
+        "school": "UPPA | Pau",
+        "dates": "2019 - 2022",
+        "description": "Multidisciplinary degree combining mathematics, computer science, economics and accounting."
+      }
+    ],
+    "skillsTitle": "My Skills",
+    "skillsDataScience": "Data Science & Analysis",
+    "skillsWebDev": "Web Development",
+    "skillsProgramming": "Programming",
+    "skillsTools": "Tools & Environments",
+    
+    "challengesTitle": "My Next Challenges",
+    "challenges": [
+      {
+        "title": "Mobile App",
+        "description": "Develop my own mobile party game app.",
+        "icon": "bx-code-alt"
+      },
+      {
+        "title": "Running",
+        "description": "Complete all super-half within the next 5 years.",
+        "icon": "bx-run",
+        "btnText": "Read more",
+        "btnLink": ""
+      },
+      {
+        "title": "Powerlifting",
+        "description": "Achieve a 600 kg total in powerlifting in the next few years.",
+        "icon": "bx-dumbbell"
+      }
+    ],
+    "latestProjectsTitle": "Latest Projects",
+    "projects": [
+      {
+        "title": "Workout log",
+        "context": "First mobile app",
+        "tags": ["React Native", "Mobile", "Database"],
+        "description": "This project is for personal use, and the idea behind this application is to help me manage my workout routines. In the future, I would like to expand it into a multi-sport app to track performance.",
+        "img": "assets/img/projects/app_mobile.png",
+        "sourceCode": "https://github.com/AlexandrePauly/mobile-app",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "E-commerce web site",
+        "context": "First steps in web development",
+        "tags": ["HTML", "CSS", "JS", "PHP", "MySQL"],
+        "description": "In this project to develop a web application for managing an e-commerce site, the idea was to create an interactive and functional solution. Attracted by the web, I sought to develop as many skills as possible on this project: programming, content creation, design, photo editing, etc.",
+        "img": "assets/img/projects/web-site.png",
+        "sourceCode": "https://github.com/AlexandrePauly/Web-site",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Power BI dashboard",
+        "context": "Final study project",
+        "tags": ["Power BI", "Excel", "Odoo"],
+        "description": "This project is part of an initiative to develop skills in Power BI, combining Business Intelligence and Digital Transformation. It represented a concrete opportunity to apply these skills within a company that I know well and in which I have a genuine interest.",
+        "img": "assets/img/projects/skinlys_fabrication.png",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Edge detection",
+        "context": "Data challenge during exchange program",
+        "tags": ["Data Science", "Python", "AI"],
+        "description": "Development of an automatic detection system for road and river contours from images acquired by drone, using deep learning techniques.",
+        "img": "assets/img/projects/edge_detection.png",
+        "sourceCode": "https://github.com/AlexandrePauly/edges-detection",
+        "moreProjects": "https://github.com/AlexandrePauly"
+      },
+      {
+        "title": "Pardessa project",
+        "context": "Hackathon in project management",
+        "tags": ["Project scoping", "WBS", "GANTT", "Zoning"],
+        "description": "This project was led by two students who want to set up a business based around activities in Paris. My contribution? Help with framing the project by drawing up a business plan, WBS, roadmap, graphic charter, zoning, etc.",
+        "img": "assets/img/projects/pardessa_zoning.png",
+        "moreProjects": "https://www.linkedin.com/in/pauly-alexandre/"
+      }
+    ],
+    "buttonSourceCode": "Source Code",
+    "buttonMoreProjects": "More Projects",
+    "buttonPreview": "Live preview",
+    "buttonHome": "Home",
+    "buttonMode": "Mode",
+    "buttonVolume": "Volume",
+    "buttonLight": "Light",
+    "buttonDark": "Dark",
+    "buttonTranslate": "Translate",
+    "buttonProfile": "Profile"
   }
 }

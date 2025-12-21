@@ -15,7 +15,7 @@
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/script.js" defer></script>
-    <script type="text/javascript" src="js/i18n.js" defer></script> <!-- Fonctions pour changer la langue du contenu -->
+    <script type="text/javascript" src="js/i18n.js" defer></script> <!-- Fonctions pour changer le contenu : permet de changer le contenu dynamiquement en fonction de la langue -->
     <script type="text/javascript" src="js/img_size.js" defer></script> <!-- Fonctions pour afficher les images en grand -->
     <script type="text/javascript" src="js/page_animation.js" defer></script> <!-- Fonctions pour animer les pages -->
     <script type="text/javascript" src="js/toast.js" defer></script> <!-- Fonctions pour afficher les toasts -->
@@ -34,9 +34,7 @@
     <div class="custom-cursor"></div>
 
     <!-- Info -->
-    <div class="info-text">
-        🔦 Déplacez votre souris pour explorer avec la lampe torche
-    </div>
+    <div class="info-text" data-i18n="infoText">🔦 Move your mouse to explore with the torchlight</div>
 
     <div class="wrapper">
       <!-- Armature du livre -->
@@ -72,7 +70,7 @@
 
             <img src="assets/img/profile_picture.png" alt=""/>
             <h1>Alexandre Pauly</h1>
-            <h3 data-i18n="jobTitle">Data science student</h3>
+            <h3 data-i18n="jobTitle">Data Science student</h3>
             <div class="social-media">
               <a class="tooltip" onclick="showToast('phone_copied')">
                 <i class="bx bxs-phone"></i>
@@ -85,18 +83,16 @@
               <a href="https://www.linkedin.com/in/pauly-alexandre" target="_blank"><i class="bx bxl-linkedin"></i></a>
               <a href="https://github.com/AlexandrePauly" target="_blank"><i class="bx bxl-github"></i></a>
             </div>
-            <p>
-              <!-- Salut ! Je m'appelle Alexandre et je suis passionné par la data, l’innovation et la transformation digitale.
-              Toujours curieux, j’aime explorer de nouveaux horizons, que ce soit à travers mes projets ou mes voyages – comme mon semestre à Taïwan qui a renforcé mon envie d’évoluer à l’international.
-              Aujourd’hui, je veux mettre à profit mon profil technique, ma vision business et ma créativité pour contribuer à des projets qui ont du sens. -->
-              Hi! My name is Alexandre, and I’m passionate about data, innovation, and digital transformation.
-              Driven by curiosity, I love exploring new horizons, whether through my projects or my travels <!-- – like my semester in Taiwan, which strengthened my desire to grow in an international environment.-->
-              Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.
+            <p data-i18n="aboutText">
+              Hi! My name is Alexandre, and I'm passionate about data, innovation, and digital transformation. Driven by curiosity, I love exploring new horizons, whether through my projects or my travels. Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.
             </p>
 
             <!-- Boutons -->
             <div class="btn-box">
-              <a href="pdf/en/CV_Alexandre_Pauly.pdf" target="_blank" class="btn"><i class="bx bxs-download"></i>Download CV</a>
+              <a onclick="get_cv()" class="btn">
+                <i class="bx bxs-download"></i>
+                <span data-i18n="downloadCVTitle">Download CV</span>
+              </a>
             </div>
           </div>
         </div>
@@ -127,35 +123,11 @@
               </div>
             </div>
 
-            <h1 class="title">Work Experience</h1>
-            <div class="workeduc-box">
-              <div class="workeduc-content">
-                <h3>Data management & Digital Transformation Apprenticeship</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-buildings"></i>Safran Helicopter Engines | Tarnos & Bordes</span>
-                  <span class="year"><i class="bx bx-calendar"></i>Sep 2024 - Sep 2026</span>
-                </div>
-                <p>Improving the maturity of digital products, building monitoring tools and steering indicators for better data management, collaborating with different teams to align data cataloging (Collibra), and leading a Data Steward community.</p>
-              </div>
+            <h1 class="title" data-i18n="workExperienceTitle">Work Experience</h1>
+            
+            <!-- Création dynamique du contenu expérience professionnelle -->
+            <div class="workeduc-box" id="workExperienceContainer"></div>
 
-              <div class="workeduc-content">
-                <h3>Workflow automation</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-buildings"></i>Total Energies | Pau</span>
-                  <span class="year"><i class="bx bx-calendar"></i>July 2024</span>
-                </div>
-                <p>Development of Ansible scripts for process automation on the ServiceNow platform.</p>
-              </div>
-
-              <div class="workeduc-content">
-                <h3>Internship at ceclant digital laboratory</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-buildings"></i>French Navy | Brest</span>
-                  <span class="year"><i class="bx bx-calendar"></i>June 2023 - Aug 2023</span>
-                </div>
-                <p>Web application development in Angular and Node.js (DevExtreme and Sequelize frameworks).</p>
-              </div>
-            </div>
             <span class="number-page">1</span>
             <!-- Page suivante -->
             <span class="nextprev-btn" data-page="turn-1"
@@ -187,46 +159,10 @@
               </div>
             </div>
 
-            <h1 class="title">Education</h1>
+            <h1 class="title" data-i18n="educationTitle">Education</h1>
 
-            <div class="workeduc-box">
-              <div class="workeduc-content">
-                <h3>MSc Start Up & Digital Transformation</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-school"></i>INSEEC | Bordeaux</span>
-                  <span class="year"><i class="bx bx-calendar"></i>2025 - 2026</span>
-                </div>
-                <p>Master’s program in digital innovation and business management, complementing a technical engineering background.</p>              
-                <!-- <p>Mastère spécialisé en management et innovation digitale, en complément d’un profil ingénieur technique.</p> -->
-              </div>
-              <div class="workeduc-content">
-                <h3>Engineering degree in Applied Mathematics - Big Data specialisation</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-school"></i>CY Tech | Pau</span>
-                  <span class="year"><i class="bx bx-calendar"></i>2022 - 2025</span>
-                </div>
-                <p>Degree in Data Science: image processing, predictive and machine learning models, classification, and strong cross-disciplinary technical skills.</p>
-                <!-- <p>Diplôme en Data Science : traitement d’images, modèles prédictifs et d'apprentissage, classification et solides compétences techniques transverses.</p> -->
-              </div>
-              <div class="workeduc-content">
-                <h3>Exchange Program</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-school"></i>NYCU | Taïwan</span>
-                  <span class="year"><i class="bx bx-calendar"></i>Feb 2024 - June 2024</span>
-                </div>
-                <p>International semester focused on knowledge in Data Science through various projects.</p>
-                <!-- <p>Semestre à l’étranger : approfondissement en Data Science au travers de nombreux projets et développement d’une application mobile.</p> -->
-              </div>
-              <div class="workeduc-content">
-                <h3>MIASHS degree at the university</h3>
-                <div class="workeduc-content-info">
-                  <span class="year"><i class="bx bxs-school"></i>UPPA | Pau</span>
-                  <span class="year"><i class="bx bx-calendar"></i>2019 - 2022</span>
-                </div>
-                <p>Multidisciplinary degree combining mathematics, computer science, economics and accounting.</p>
-                <!-- <p>Licence pluridisciplinaire en mathématiques, informatique, économie, comptabilité et gestion.</p> -->
-              </div>
-            </div>
+            <!-- Création dynamique du contenu formation -->
+            <div class="workeduc-box" id="educationContainer"></div>
 
             <span class="number-page">2</span>
             <!-- Page précédente -->
@@ -262,10 +198,10 @@
               </div>
             </div>
 
-            <h1 class="title">My Skills</h1>
+            <h1 class="title" data-i18n="skillsTitle">My Skills</h1>
             <div class="skills-box">
               <div class="skills-content">
-                <h3>Data Science & Analysis</h3>
+                <h3 data-i18n="skillsDataScience">Data Science & Analysis</h3>
                 <div class="content">
                   <span><img src="assets/img/logo/python.png" alt="">Python</span>
                   <span><i class="bx bx-data"></i>SQL, MySQL</span>
@@ -280,7 +216,7 @@
               </div>
 
               <div class="skills-content">
-                <h3>Web Development</h3>
+                <h3 data-i18n="skillsWebDev">Web Development</h3>
                 <div class="content">
                   <span><img src="assets/img/logo/html.png" alt="">HTML</span>
                   <span><img src="assets/img/logo/css.png" alt="">CSS</span>
@@ -302,7 +238,7 @@
               </div>
 
               <div class="skills-content">
-                <h3>Programming</h3>
+                <h3 data-i18n="skillsProgramming">Programming</h3>
                 <div class="content">
                   <span><img src="assets/img/logo/java.png" alt="">Java</span>
                   <span><img src="assets/img/logo/c.png" alt="">C, C++</span>
@@ -347,7 +283,7 @@
 
             <div class="skills-box">
               <div class="skills-content">
-                <h3>Tools & Environments</h3>
+                <h3 data-i18n="skillsTools">Tools & Environments</h3>
                 <div class="content">
                   <span><img src="assets/img/logo/git.png" alt="">Git/GitHub</span>
                   <span><img src="assets/img/logo/docker.png" alt="">Docker</span>
@@ -392,28 +328,10 @@
               </div>
             </div>
 
-            <h1 class="title">My Next Challenges</h1>
+            <h1 class="title" data-i18n="challengesTitle">My Next Challenges</h1>
 
-            <div class="services-box">
-              <div class="services-content">
-                <i class="bx bx-code-alt"></i>
-                <h3>Mobile App</h3>
-                <p>Develop my own mobile party game app.</p>
-                <!-- <a href="#" class="btn">Read More</a> -->
-              </div>
-              <div class="services-content">
-                <i class="bx bx-run"></i>
-                <h3>Running</h3>
-                <p>Complete all super-half within the next 5 years.</p>
-                <!-- <a href="#" class="btn">Read More</a> -->
-              </div>
-              <div class="services-content">
-                <i class="bx bx-dumbbell"></i>
-                <h3>Powerlifting</h3>
-                <p>Achieve a 600 kg total in powerlifting in the next few years.</p>
-                <!-- <a href="#" class="btn">Read More</a> -->
-              </div>
-            </div>
+            <!-- Création dynamique du contenu challenges -->
+            <div class="services-box" id="challengeContainer"></div>
 
             <span class="number-page">5</span>
             <!-- Page suivante -->
@@ -446,37 +364,13 @@
               </div>
             </div>
 
-            <h1 class="title">Latest Projects</h1>
-            <div class="portfolio-box">
-              <div class="img-box">
-                <img src="assets/img/projects/app_mobile.png" alt="" class="expandabled-img" />
-              </div>
-              <div class="info-box">
-                <div class="info-title">
-                  <h3>Workout log</h3>
-                  <!-- <a href="#"
-                    >Live Preview<i class="bx bx-link-external"></i
-                  ></a> -->
-                </div>
+            <h1 class="title" data-i18n="latestProjectsTitle">Latest Projects</h1>
 
-                <div class="tags-container">
-                  <span class="tag">React Native</span>
-                  <span class="tag">Mobile</span>
-                  <span class="tag">Database</span>
-                </div>
-      
-                <p>Context : First mobile app</p>
-                <p>
-                  This project is for personal use, and the idea behind this application is to help me manage my workout routines. 
-                  In the future, I would like to expand it into a multi-sport app to track performance.
-                </p>
-              </div>
-              <div class="btn-box">
-                <a href="https://github.com/AlexandrePauly/mobile-app" target="_blank" class="btn">Source Code</a>
-                <a href="https://github.com/AlexandrePauly" target="_blank" class="btn">More Projects</a>
-              </div>
-            </div>
+            <!-- Création dynamique du contenu projets -->
+            <div class="portfolio-box" data-project-id="0"></div>
+
             <span class="number-page">6</span>
+
             <!-- Page précédente -->
             <span class="nextprev-btn back" data-page="turn-3"
               ><i class="bx bx-chevron-left"></i
@@ -509,43 +403,15 @@
               </div>
             </div>
 
-            <div class="portfolio-box">
-              <div class="img-box">
-                <img src="assets/img/projects/web-site.png" alt="" class="expandabled-img" />
-              </div>
-              <div class="info-box">
-                <div class="info-title">
-                  <h3>E-commerce web site</h3>
-                  <!-- <a href="#"
-                    >Live Preview<i class="bx bx-link-external"></i
-                  ></a> -->
-                </div>
-
-                <div class="tags-container">
-                  <span class="tag">HTML</span>
-                  <span class="tag">CSS</span>
-                  <span class="tag">JS</span>
-                  <span class="tag">PHP</span>
-                  <span class="tag">MySQL</span>
-                </div>
-
-                <p>Context : First steps in web development</p>
-                <p>
-                  In this project to develop a web application for managing an e-commerce site, the idea was to create an interactive and functional solution.
-                  Attracted by the web, I sought to develop as many skills as possible on this project: programming, content creation, design, photo editing, etc.
-                </p>
-              </div>
-              <div class="btn-box">
-                <a href="https://github.com/AlexandrePauly/Web-site" target="_blank" class="btn">Source Code</a>
-                <a href="https://github.com/AlexandrePauly" target="_blank" class="btn">More Projects</a>
-              </div>
-            </div>
+            <!-- Création dynamique du contenu projets -->
+            <div class="portfolio-box" data-project-id="1"></div>
 
             <span class="number-page">7</span>
+
             <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-4"
-              ><i class="bx bx-chevron-right"></i
-            ></span>
+            <span class="nextprev-btn" data-page="turn-4">
+              <i class="bx bx-chevron-right"></i>
+            </span>
           </div>
 
           <!-- Page 8 (Lastest Projects) -->
@@ -572,40 +438,15 @@
               </div>
             </div>
 
-            <div class="portfolio-box">
-              <div class="img-box">
-                <img src="assets/img/projects/skinlys_fabrication.png" alt="" class="expandabled-img" style="object-position: top;" />
-              </div>
-              <div class="info-box">
-                <div class="info-title">
-                  <h3>Power BI dashboard</h3>
-                  <!-- <a href="#"
-                    >Live Preview<i class="bx bx-link-external"></i
-                  ></a> -->
-                </div>
-
-                <div class="tags-container">
-                  <span class="tag">Power BI</span>
-                  <span class="tag">Excel</span>
-                  <span class="tag">Odoo</span>
-                </div>
-
-                <p>Context : Final study project</p>
-                <p>
-                  This project is part of an initiative to develop skills in Power BI, combining Business Intelligence and Digital Transformation.
-                  It represented a concrete opportunity to apply these skills within a company that I know well and in which I have a genuine interest.
-                </p>
-              </div>
-              <div class="btn-box">
-                <a href="https://www.linkedin.com/in/pauly-alexandre/" target="_blank" class="btn">More Projects</a>
-              </div>
-            </div>
+            <!-- Création dynamique du contenu projets -->
+            <div class="portfolio-box" data-project-id="2"></div>
 
             <span class="number-page">8</span>
+
             <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-4"
-              ><i class="bx bx-chevron-left"></i
-            ></span>
+            <span class="nextprev-btn back" data-page="turn-4">
+              <i class="bx bx-chevron-left"></i>
+            </span>
           </div>
         </div>
 
@@ -635,40 +476,15 @@
               </div>
             </div>
 
-            <div class="portfolio-box">
-              <div class="img-box">
-                <img src="assets/img/projects/edge_detection.png" alt="" class="expandabled-img" />
-              </div>
-              <div class="info-box">
-                <div class="info-title">
-                  <h3>Edge detection</h3>
-                  <!-- <a href="#"
-                    >Live Preview<i class="bx bx-link-external"></i
-                  ></a> -->
-                </div>
-
-                <div class="tags-container">
-                  <span class="tag">Data Science</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">AI</span>
-                </div>
-
-                <p>Context : Data challenge during exchange program</p>
-                <p>
-                  Development of an automatic detection system for road and river contours from images acquired by drone, using deep learning techniques.
-                </p>
-              </div>
-              <div class="btn-box">
-                <a href="https://github.com/AlexandrePauly/edges-detection" target="_blank" class="btn">Source Code</a>
-                <a href="https://github.com/AlexandrePauly" target="_blank" class="btn">More Projects</a>
-              </div>
-            </div>
+            <!-- Création dynamique du contenu projets -->
+            <div class="portfolio-box" data-project-id="3"></div>
 
             <span class="number-page">9</span>
+
             <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-5"
-              ><i class="bx bx-chevron-right"></i
-            ></span>
+            <span class="nextprev-btn" data-page="turn-5">
+              <i class="bx bx-chevron-right"></i>
+            </span>
           </div>
 
           <!-- Page 10 -->
@@ -695,44 +511,19 @@
               </div>
             </div>
 
-            <div class="portfolio-box">
-              <div class="img-box">
-                <img src="assets/img/projects/pardessa_zoning.png" alt="" class="expandabled-img" />
-              </div>
-              <div class="info-box">
-                <div class="info-title">
-                  <h3>Pardessa project</h3>
-                  <!-- <a href="#"
-                    >Live Preview<i class="bx bx-link-external"></i
-                  ></a> -->
-                </div>
-
-                <div class="tags-container">
-                  <span class="tag">Project scoping</span>
-                  <span class="tag">WBS</span>
-                  <span class="tag">GANTT</span>
-                  <span class="tag">Zoning</span>
-                </div>
-
-                <p>Context : Hackathon in project management</p>
-                <p>
-                  This project was led by two students who want to set up a business based around activities in Paris. 
-                  My contribution? Help with framing the project by drawing up a business plan, WBS, roadmap, graphic charter, zoning, etc.
-                </p>
-              </div>
-              <div class="btn-box">
-                <a href="https://www.linkedin.com/in/pauly-alexandre/" target="_blank" class="btn">More Projects</a>
-              </div>
-            </div>
+            <!-- Création dynamique du contenu projets -->
+            <div class="portfolio-box" data-project-id="4"></div>
 
             <span class="number-page">10</span>
+
             <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-5"
-              ><i class="bx bx-chevron-left"></i
-            ></span>
-            <!-- home button -->
+            <span class="nextprev-btn back" data-page="turn-5">
+              <i class="bx bx-chevron-left"></i>
+            </span>
+
+            <!-- Home button -->
             <a href="#" class="back-profile" onclick="backProfileBtn()">
-              <p>Profile</p>
+              <p data-i18n="buttonProfile">Profile</p>
               <i class="bx bxs-user"></i>
             </a>
           </div>
@@ -762,31 +553,31 @@
         <span class="link-icon">
           <i class="bx bx-home-alt-2"></i>
         </span>
-        <span class="link-title">Home</span>
+        <span class="link-title" data-i18n="buttonHome">Home</span>
       </a>
       <a href="#" class="link">
         <span class="link-icon">
           <i class="bx bx-book-content"></i>
         </span>
-        <span class="link-title">Mode</span>
+        <span class="link-title" data-i18n="buttonMode">Mode</span>
       </a>
       <a href="#" class="link" id="volumeToggle">
         <span class="link-icon">
           <i class="bx bx-volume-full"></i>
         </span>
-        <span class="link-title">Volume</span>
+        <span class="link-title" data-i18n="buttonVolume">Volume</span>
       </a>
       <a href="#" class="link" id="lightToggle">
         <span class="link-icon">
           <i class="bx bx-moon"></i>
         </span>
-        <span class="link-title">Light</span>
+        <span class="link-title" data-i18n="buttonDark">Dark</span>
       </a>
       <a href="#" class="link" id="languageToggle">
         <span class="link-icon">
           <i class="bx bx-globe"></i>
         </span>
-        <span class="link-title">Translate</span>
+        <span class="link-title" data-i18n="buttonTranslate">Translate</span>
       </a>
     </div>
   </body>
@@ -805,6 +596,10 @@
         https://uiverse.io/Admin12121/soft-falcon-79
         https://codepen.io/jh3y/pen/VwjgdLj
 
+        Ajouter lien super-half
+        Chargement dynamique des skills
+        Remplacer more-projects par similar-projects
+        Charger dynamiquement les bookmarks
         Menu en bas pour gérer les élements : langue, mode de lecture
         éléments qui passent derrière l'écran par moment
         écrire ou dessiner au dos du livre

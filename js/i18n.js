@@ -1,33 +1,188 @@
-let currentLang = 'fr'; // langue par défaut
+// Permet de gérer le contenu dynamiquement en fonction de la langue sélectionnée
+// Dans le html, les éléments contiennent les valeurs françaises en valeur par défaut
 
-// stocker le contenu globalement après fetch
+let currentLanguage = 'fr'; // langue par défaut
+
+// Stockage du contenu
 let contentData = {};
 
-// 1️⃣ Charger le JSON
+// Chargement du JSON
 fetch('assets/data.json')
   .then(res => res.json())
   .then(data => {
     contentData = data;
     updateContent(); // afficher le contenu initial
+    renderWorkExperience(contentData, currentLanguage);
+    renderEducation(contentData, currentLanguage);
+    renderChallenges(contentData, currentLanguage);
+    renderProjects(contentData, currentLanguage);
   })
   .catch(err => console.error('Erreur chargement JSON:', err));
 
-// 2️⃣ Fonction pour mettre à jour le contenu
+// Fonction pour mettre à jour le contenu
 function updateContent() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (contentData[currentLang] && contentData[currentLang][key]) {
-      el.textContent = contentData[currentLang][key];
+    if (contentData[currentLanguage] && contentData[currentLanguage][key]) {
+      el.textContent = contentData[currentLanguage][key];
     }
   });
 }
 
-// 3️⃣ Ajouter le listener sur le bouton
+// Ajout du listener sur le bouton
 const langToggle = document.getElementById('languageToggle');
 langToggle.addEventListener('click', e => {
   e.preventDefault();
 
   // Switch entre fr et en
-  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
   updateContent();
+  renderWorkExperience(contentData, currentLanguage);
+  renderEducation(contentData, currentLanguage);
+  renderChallenges(contentData, currentLanguage);
+  renderProjects(contentData, currentLanguage);
 });
+
+function get_cv() {
+  window.open(contentData[currentLanguage].downloadCVLink);
+}
+
+// Chargement dynamique des expériences professionnelles
+function renderWorkExperience(data, lang) {
+  const container = document.getElementById("workExperienceContainer");
+  if (!container) return;
+
+  container.innerHTML = ""; // reset
+
+  data[lang].workExperience.forEach(elt => {
+    const expHTML = `
+      <div class="workeduc-content">
+        <h3>${elt.title}</h3>
+
+        <div class="workeduc-content-info">
+          <span class="year">
+            <i class="bx bxs-buildings"></i>${elt.company}
+          </span>
+          <span class="year">
+            <i class="bx bx-calendar"></i>${elt.dates}
+          </span>
+        </div>
+
+        <p>${elt.description}</p>
+      </div>
+    `;
+
+    container.insertAdjacentHTML("beforeend", expHTML);
+  });
+}
+
+// Chargement dynamique des formations
+function renderEducation(data, lang) {
+  const container = document.getElementById("educationContainer");
+  if (!container) return;
+
+  container.innerHTML = ""; // reset
+
+  data[lang].education.forEach(elt => {
+    const expHTML = `
+      <div class="workeduc-content">
+        <h3>${elt.title}</h3>
+
+        <div class="workeduc-content-info">
+          <span class="year">
+            <i class="bx bxs-school"></i>${elt.school}
+          </span>
+          <span class="year">
+            <i class="bx bx-calendar"></i>${elt.dates}
+          </span>
+        </div>
+
+        <p>${elt.description}</p>
+      </div>
+    `;
+
+    container.insertAdjacentHTML("beforeend", expHTML);
+  });
+}
+
+// Chargement dynamique des challenges
+function renderChallenges(data, lang) {
+  const container = document.getElementById("challengeContainer");
+  if (!container) return;
+
+  container.innerHTML = ""; // reset
+
+  data[lang].challenges.forEach(elt => {
+    let expHTML = `
+      <div class="services-content">
+        <i class="bx ${elt.icon}"></i>
+        <h3>${elt.title}</h3>
+        <p>${elt.description}</p>
+    `;
+    
+    if (elt.btnText !== undefined && elt.btnLink !== undefined) {
+      expHTML = expHTML + `
+        <a href="${elt.btnLink}">${elt.btnText}<i class="bx bx-link-external"></i></a>
+      `;
+    } 
+    
+    expHTML = expHTML + `
+      </div>
+    `;
+
+    container.insertAdjacentHTML("beforeend", expHTML);
+  });
+}
+
+// Chargement dynamique des projets
+function renderProjects(data, lang) {
+  const portfolioBox = document.querySelectorAll('.portfolio-box');
+  
+  portfolioBox.forEach(box => {
+    const projectId = box.dataset.projectId;
+    const project = data[lang].projects[projectId];
+    
+    if (!project) return;
+
+    portfolioBox[projectId].innerHTML = ""; // reset
+
+    let expHTML = `
+      <div class="img-box">
+        <img src="${project.img}" alt="" class="expandabled-img" />
+      </div>
+      <div class="info-box">
+        <div class="info-title">
+          <h3>${project.title}</h3>
+    `;
+
+    if (project.previewLink !== undefined) {
+      expHTML = expHTML + `
+          <a href="${project.previewLink}">${data[lang].buttonPreview}<i class="bx bx-link-external"></i></a>
+      `;
+    } 
+
+    expHTML = expHTML + `
+        </div>
+
+        <div class="tags-container">
+    `;
+
+    project.tags.forEach(tag => {
+      expHTML = expHTML + `<span class="tag">${tag}</span>`
+    });
+
+    expHTML = expHTML + `
+        </div>
+
+        <p>${project.context}</p>
+        <p>${project.description}</p>
+      </div>
+      <div class="btn-box">
+        <a href="${project.sourceCode}" target="_blank" class="btn">${data[lang].buttonSourceCode}</a>
+        <a href="${project.moreProjects}" target="_blank" class="btn">${data[lang].buttonMoreProjects}</a>
+      </div>
+    `;
+
+    portfolioBox[projectId].insertAdjacentHTML("beforeend", expHTML);
+  });
+}
