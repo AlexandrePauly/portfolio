@@ -62,7 +62,7 @@
     "challenges": [
       {
         "title": "Application Mobile",
-        "description": "Développer ma propre application de jeu de soirée mobile.",
+        "description": "Développer ma propre application mobile de jeu de soirée.",
         "icon": "bx-code-alt"
       },
       {
@@ -70,7 +70,7 @@
         "description": "Compléter tous les super-halfs dans les 5 prochaines années.",
         "icon": "bx-run",
         "btnText": "En savoir plus",
-        "btnLink": ""
+        "btnLink": "https://www.finishers.com/c/superhalfs"
       },
       {
         "title": "Powerlifting",
@@ -127,7 +127,7 @@
       }
     ],
     "buttonSourceCode": "Code source",
-    "buttonMoreProjects": "Plus de projets",
+    "buttonSimilarProjects": "Projets similaires",
     "buttonPreview": "Voir démo",
     "buttonHome": "Accueil",
     "buttonMode": "Mode",
@@ -264,7 +264,7 @@
       }
     ],
     "buttonSourceCode": "Source Code",
-    "buttonMoreProjects": "More Projects",
+    "buttonSimilarProjects": "Similar Projects",
     "buttonPreview": "Live preview",
     "buttonHome": "Home",
     "buttonMode": "Mode",

@@ -64,7 +64,14 @@ lightToggle.addEventListener('click', (e) => {
         body.classList.remove('dark-mode');
         icon.classList.remove('bx-sun');
         icon.classList.add('bx-moon');
-        title.textContent = 'Dark';
+
+        // Utiliser la fonction i18n pour le texte
+        if (typeof updateLightToggleText === 'function') {
+            updateLightToggleText();
+        } else {
+            title.textContent = 'Dark'; // Fallback si i18n pas chargé
+        }
+
         flashlight.style.opacity = '0';
         customCursor.style.opacity = '0';
     } else {
@@ -73,7 +80,14 @@ lightToggle.addEventListener('click', (e) => {
         body.classList.remove('light-mode');
         icon.classList.remove('bx-moon');
         icon.classList.add('bx-sun');
-        title.textContent = 'Light';
+        
+        // Utiliser la fonction i18n pour le texte
+        if (typeof updateLightToggleText === 'function') {
+            updateLightToggleText();
+        } else {
+            title.textContent = 'Light'; // Fallback si i18n pas chargé
+        }
+
         flashlight.style.opacity = '1';
         customCursor.style.opacity = '1';
         infoText.style.opacity = '1';
@@ -106,7 +120,13 @@ window.addEventListener('load', () => {
         const title = document.querySelector('#lightToggle .link-title');
         icon.classList.remove('bx-sun');
         icon.classList.add('bx-moon');
-        title.textContent = 'Dark';
+
+        // Utiliser la fonction i18n pour le texte
+        if (typeof updateLightToggleText === 'function') {
+            updateLightToggleText();
+        } else {
+            title.textContent = 'Dark'; // Fallback
+        }
     }, 2000);
 
     // Création dynamique des bookmars pour éviter d'inclure 1 bloc de code par page

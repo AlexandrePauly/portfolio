@@ -27,6 +27,9 @@ function updateContent() {
       el.textContent = contentData[currentLanguage][key];
     }
   });
+
+  // Mettre à jour le texte du bouton light/dark en fonction de l'état actuel
+  updateLightToggleText();
 }
 
 // Ajout du listener sur le bouton
@@ -122,7 +125,7 @@ function renderChallenges(data, lang) {
     
     if (elt.btnText !== undefined && elt.btnLink !== undefined) {
       expHTML = expHTML + `
-        <a href="${elt.btnLink}">${elt.btnText}<i class="bx bx-link-external"></i></a>
+        <a href="${elt.btnLink}" target="_blank">${elt.btnText}<i class="bx bx-link-external"></i></a>
       `;
     } 
     
@@ -179,10 +182,22 @@ function renderProjects(data, lang) {
       </div>
       <div class="btn-box">
         <a href="${project.sourceCode}" target="_blank" class="btn">${data[lang].buttonSourceCode}</a>
-        <a href="${project.moreProjects}" target="_blank" class="btn">${data[lang].buttonMoreProjects}</a>
+        <a href="${project.moreProjects}" target="_blank" class="btn">${data[lang].buttonSimilarProjects}</a>
       </div>
     `;
 
     portfolioBox[projectId].insertAdjacentHTML("beforeend", expHTML);
   });
+}
+
+// Nouvelle fonction pour mettre à jour le texte du bouton light/dark
+function updateLightToggleText() {
+  const title = document.querySelector('#lightToggle .link-title');
+  if (title && contentData[currentLanguage]) {
+    // Vérifier si on est en mode lumière ou sombre
+    const isLightMode = document.body.classList.contains('light-mode');
+    title.textContent = isLightMode 
+      ? contentData[currentLanguage].buttonDark 
+      : contentData[currentLanguage].buttonLight;
+  }
 }
