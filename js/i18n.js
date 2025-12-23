@@ -182,7 +182,7 @@ function renderProjects(data, lang) {
       </div>
       <div class="btn-box">
         <a href="${project.sourceCode}" target="_blank" class="btn">${data[lang].buttonSourceCode}</a>
-        <a href="${project.moreProjects}" target="_blank" class="btn">${data[lang].buttonSimilarProjects}</a>
+        <a href="${project.similarProjects}" target="_blank" class="btn">${data[lang].buttonSimilarProjects}</a>
       </div>
     `;
 

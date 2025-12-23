@@ -88,7 +88,7 @@
         "description": "Ce projet est à usage personnel, l'idée derrière cette application est de m'aider à gérer mes routines d'entraînement. À l'avenir, j'aimerais l'étendre en une application multi-sport pour suivre les performances.",
         "img": "assets/img/projects/app_mobile.png",
         "sourceCode": "https://github.com/AlexandrePauly/mobile-app",
-        "moreProjects": "https://github.com/AlexandrePauly",
+        "similarProjects": "https://alexandrepauly.github.io/slider/",
         "previewLink": ""
       },
       {
@@ -98,7 +98,7 @@
         "description": "Dans ce projet de développement d'une application web pour gérer un site e-commerce, l'idée était de créer une solution interactive et fonctionnelle. Attiré par le web, j'ai cherché à développer autant de compétences que possible sur ce projet : programmation, création de contenu, design, retouche photo, etc.",
         "img": "assets/img/projects/web-site.png",
         "sourceCode": "https://github.com/AlexandrePauly/Web-site",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly/docker-web-site"
       },
       {
         "title": "Dashboard Power BI",
@@ -106,7 +106,7 @@
         "tags": ["Power BI", "Excel", "Odoo"],
         "description": "Ce projet s'inscrit dans une démarche de développement de compétences en Power BI, combinant Business Intelligence et Transformation Digitale. Il représentait une opportunité concrète d'appliquer ces compétences au sein d'une entreprise que je connais bien et pour laquelle j'ai un réel intérêt.",
         "img": "assets/img/projects/skinlys_fabrication.png",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly/PowerBI-house-dataset"
       },
       {
         "title": "Détection de contours",
@@ -115,7 +115,7 @@
         "description": "Développement d'un système de détection automatique de contours de routes et de rivières à partir d'images acquises par drone, utilisant des techniques d'apprentissage profond.",
         "img": "assets/img/projects/edge_detection.png",
         "sourceCode": "https://github.com/AlexandrePauly/edges-detection",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly/Fingerprint-recognition"
       },
       {
         "title": "Projet Pardessa",
@@ -123,7 +123,7 @@
         "tags": ["Cadrage de projet", "WBS", "GANTT", "Zoning"],
         "description": "Ce projet a été mené par deux étudiants qui souhaitent monter une entreprise autour d'activités à Paris. Ma contribution ? Aider au cadrage du projet en établissant un business plan, WBS, feuille de route, charte graphique, zoning, etc.",
         "img": "assets/img/projects/pardessa_zoning.png",
-        "moreProjects": "https://www.linkedin.com/in/pauly-alexandre/"
+        "similarProjects": "https://www.linkedin.com/in/pauly-alexandre/"
       }
     ],
     "buttonSourceCode": "Code source",
@@ -226,7 +226,7 @@
         "description": "This project is for personal use, and the idea behind this application is to help me manage my workout routines. In the future, I would like to expand it into a multi-sport app to track performance.",
         "img": "assets/img/projects/app_mobile.png",
         "sourceCode": "https://github.com/AlexandrePauly/mobile-app",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly"
       },
       {
         "title": "E-commerce web site",
@@ -235,7 +235,7 @@
         "description": "In this project to develop a web application for managing an e-commerce site, the idea was to create an interactive and functional solution. Attracted by the web, I sought to develop as many skills as possible on this project: programming, content creation, design, photo editing, etc.",
         "img": "assets/img/projects/web-site.png",
         "sourceCode": "https://github.com/AlexandrePauly/Web-site",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly"
       },
       {
         "title": "Power BI dashboard",
@@ -243,7 +243,7 @@
         "tags": ["Power BI", "Excel", "Odoo"],
         "description": "This project is part of an initiative to develop skills in Power BI, combining Business Intelligence and Digital Transformation. It represented a concrete opportunity to apply these skills within a company that I know well and in which I have a genuine interest.",
         "img": "assets/img/projects/skinlys_fabrication.png",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly"
       },
       {
         "title": "Edge detection",
@@ -252,7 +252,7 @@
         "description": "Development of an automatic detection system for road and river contours from images acquired by drone, using deep learning techniques.",
         "img": "assets/img/projects/edge_detection.png",
         "sourceCode": "https://github.com/AlexandrePauly/edges-detection",
-        "moreProjects": "https://github.com/AlexandrePauly"
+        "similarProjects": "https://github.com/AlexandrePauly"
       },
       {
         "title": "Pardessa project",
@@ -260,7 +260,7 @@
         "tags": ["Project scoping", "WBS", "GANTT", "Zoning"],
         "description": "This project was led by two students who want to set up a business based around activities in Paris. My contribution? Help with framing the project by drawing up a business plan, WBS, roadmap, graphic charter, zoning, etc.",
         "img": "assets/img/projects/pardessa_zoning.png",
-        "moreProjects": "https://www.linkedin.com/in/pauly-alexandre/"
+        "similarProjects": "https://www.linkedin.com/in/pauly-alexandre/"
       }
     ],
     "buttonSourceCode": "Source Code",
