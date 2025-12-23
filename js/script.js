@@ -108,4 +108,37 @@ window.addEventListener('load', () => {
         icon.classList.add('bx-moon');
         title.textContent = 'Dark';
     }, 2000);
+
+    // Création dynamique des bookmars pour éviter d'inclure 1 bloc de code par page
+    const bookmarkBox = document.querySelectorAll('.bookmark-container');
+    
+    bookmarkBox.forEach(box => {
+        const bookmarkId = box.dataset.bookmarkId;
+        
+        bookmarkBox[bookmarkId].innerHTML = ""; // reset
+
+        let expHTML = `
+            <div class="bookmark">
+                <div class="wear-effect"></div>
+                <div class="metal-ring"></div>
+                <div class="bookmark-ring"></div>
+                
+                <div class="emblem">👑</div>
+                
+                <div class="engraved-text">
+                    PORTFOLIO<br>
+                    2026
+                </div>
+                
+                <div class="ribbon"></div>
+                
+                <div class="stitch"></div>
+                <div class="stitch"></div>
+                <div class="stitch"></div>
+                <div class="stitch"></div>
+            </div>
+        `;
+
+        bookmarkBox[bookmarkId].insertAdjacentHTML("beforeend", expHTML);
+    });
 });
