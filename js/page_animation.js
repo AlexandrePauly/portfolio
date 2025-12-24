@@ -1,20 +1,15 @@
-/* =====================================================
-   AUDIO — VERSION PRO
-===================================================== */
-
 // Création du son
 const pageTurnSound = new Audio("assets/sound/page-turn.mp3");
 pageTurnSound.volume = 0.6;
-pageTurnSound.muted = false;
 
 // États
-let isMuted = false;
+const savedVolume = localStorage.getItem("volume");
+let isMuted = savedVolume === "off";
+pageTurnSound.muted = false;
 let userHasInteracted = false;
 
-/* =====================================================
-   UNLOCK AUDIO (obligatoire navigateur)
-===================================================== */
-
+// Déblocage de l'audio
+// Les navigateurs interdisent toute lecture audio automatique tant que : l’utilisateur n’a pas cliqué ou n’a pas interagi avec la page
 function unlockAudio() {
   if (userHasInteracted) return;
 
@@ -34,10 +29,7 @@ document.addEventListener("click", unlockAudio, { once: true });
 document.addEventListener("keydown", unlockAudio, { once: true });
 document.addEventListener("touchstart", unlockAudio, { once: true });
 
-/* =====================================================
-   PLAY SOUND — FONCTION CENTRALE
-===================================================== */
-
+// Fonction pour jouer le son
 function playPageSound() {
   if (!userHasInteracted || pageTurnSound.muted) return;
 
@@ -45,12 +37,12 @@ function playPageSound() {
   pageTurnSound.play().catch(() => {});
 }
 
-/* =====================================================
-   VOLUME TOGGLE
-===================================================== */
-
+// Bouton pour régler le volume
 const volumeToggle = document.getElementById("volumeToggle");
 const volumeIcon = volumeToggle.querySelector("i");
+
+volumeIcon.classList.toggle("bx-volume-full", !isMuted);
+volumeIcon.classList.toggle("bx-volume-mute", isMuted);
 
 volumeToggle.addEventListener("click", (e) => {
   e.preventDefault();
@@ -60,12 +52,13 @@ volumeToggle.addEventListener("click", (e) => {
 
   volumeIcon.classList.toggle("bx-volume-full", !isMuted);
   volumeIcon.classList.toggle("bx-volume-mute", isMuted);
+
+  // Sauvegarde dans le localStorage
+  localStorage.setItem("volume", isMuted ? "off" : "on");
 });
 
-/* =====================================================
-   PAGE TURN — CLICK NEXT / PREV
-===================================================== */
 
+// Changement de page
 const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
 
 pageTurnBtn.forEach((el, index) => {
@@ -89,10 +82,7 @@ pageTurnBtn.forEach((el, index) => {
   });
 });
 
-/* =====================================================
-   BACK PROFILE BUTTON
-===================================================== */
-
+// Retour à la page du profil
 const pages = document.querySelectorAll(".book-page.page-right");
 const totalPages = pages.length;
 
@@ -111,14 +101,9 @@ function backProfileBtn() {
   });
 }
 
-/* =====================================================
-   OPENING ANIMATION (VISUEL UNIQUEMENT)
-===================================================== */
-
+// Ouverture du livre
 const coverRight = document.querySelector(".cover.cover-right");
 const pageLeft = document.querySelector(".book-page.page-left");
-
-// ⚠️ AUCUN SON ICI
 
 setTimeout(() => {
   coverRight.classList.add("turn");

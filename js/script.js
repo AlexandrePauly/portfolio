@@ -56,7 +56,7 @@ flashlightSound.volume = 0.6;
 flashlightSound.muted = false;
 
 // État initial (mode sombre)
-let isLightMode = false;
+let isLightMode = localStorage.getItem('lightMode') || false;
 
 lightToggle.addEventListener('click', (e) => {
     e.preventDefault();
@@ -66,8 +66,15 @@ lightToggle.addEventListener('click', (e) => {
     if (buttonMode.classList.value.includes('bx-mobile')) {
         isLightMode = !isLightMode;
 
-        flashlightSound.currentTime = 0; // permet de rejouer rapidement
-        flashlightSound.play();
+        // Sauvegarde dans le localStorage
+        localStorage.setItem('lightMode', isLightMode);
+
+        const savedVolume = localStorage.getItem("volume");
+
+        if (savedVolume === "on") {
+            flashlightSound.currentTime = 0; // permet de rejouer rapidement
+            flashlightSound.play();
+        }
         
         if (isLightMode) {
             // Activer le mode lumière
@@ -121,25 +128,36 @@ document.addEventListener('mousemove', (e) => {
 
 // Animation au chargement
 window.addEventListener('load', () => {
-    body.classList.add('dark-mode');
-    
-    // Allumer la lumière juste avant l'ouverture du livre
-    setTimeout(() => {
-        isLightMode = true;
-        document.body.classList.add('light-mode');
-        document.body.classList.remove('dark-mode');
-        const icon = document.querySelector('#lightToggle i');
-        const title = document.querySelector('#lightToggle .link-title');
-        icon.classList.remove('bx-sun');
-        icon.classList.add('bx-moon');
+    // Icon de volume
+    const volumeIcon = document.querySelector("#volumeToggle i");
+    localStorage.getItem('volume') === true ? volumeIcon.classList.add("bx-volume-mute") : volumeIcon.classList.add("bx-volume-full");
 
-        // Utiliser la fonction i18n pour le texte
-        if (typeof updateLightToggleText === 'function') {
-            updateLightToggleText();
-        } else {
-            title.textContent = 'Dark'; // Fallback
-        }
-    }, 2000);
+    // Animation de la lumière
+    if (!isLightMode) {
+        body.classList.add('dark-mode');
+    
+        // Allumer la lumière juste avant l'ouverture du livre
+        setTimeout(() => {
+            isLightMode = true;
+
+            // Sauvegarde dans le localStorage
+            localStorage.setItem('lightMode', isLightMode);
+
+            document.body.classList.add('light-mode');
+            document.body.classList.remove('dark-mode');
+            const icon = document.querySelector('#lightToggle i');
+            const title = document.querySelector('#lightToggle .link-title');
+            icon.classList.remove('bx-sun');
+            icon.classList.add('bx-moon');
+
+            // Utiliser la fonction i18n pour le texte
+            if (typeof updateLightToggleText === 'function') {
+                updateLightToggleText();
+            } else {
+                title.textContent = 'Dark'; // Fallback
+            }
+        }, 2000);
+    }
 
     // Création dynamique des bookmars pour éviter d'inclure 1 bloc de code par page
     const bookmarkBox = document.querySelectorAll('.bookmark-container');

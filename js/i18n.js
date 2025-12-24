@@ -1,7 +1,8 @@
 // Permet de gérer le contenu dynamiquement en fonction de la langue sélectionnée
 // Dans le html, les éléments contiennent les valeurs françaises en valeur par défaut
 
-let currentLanguage = 'en'; // langue par défaut
+// Local storage sinon anglais par défaut
+let currentLanguage = localStorage.getItem('language') || 'en';
 
 // Stockage du contenu
 let contentData = {};
@@ -39,6 +40,10 @@ langToggle.addEventListener('click', e => {
 
   // Switch entre fr et en
   currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+
+  // Sauvegarde dans le localStorage
+  localStorage.setItem('language', currentLanguage);
+
   updateContent();
   renderWorkExperience(contentData, currentLanguage);
   renderEducation(contentData, currentLanguage);

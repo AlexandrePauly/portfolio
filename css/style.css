@@ -599,7 +599,7 @@ body {
 }
 
 .wrapper.ereader-mode .book-container {
-  opacity: 0 !important;
+  /* opacity: 0 !important; */
   transform: scale(0.8);
   pointer-events: none;
 }
