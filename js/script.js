@@ -69,7 +69,7 @@ lightToggle.addEventListener('click', (e) => {
         // Sauvegarde dans le localStorage
         localStorage.setItem('lightMode', isLightMode);
 
-        const savedVolume = localStorage.getItem("volume");
+        const savedVolume = localStorage.getItem("volume") || "off";
 
         if (savedVolume === "on") {
             flashlightSound.currentTime = 0; // permet de rejouer rapidement

@@ -3,9 +3,9 @@ const pageTurnSound = new Audio("assets/sound/page-turn.mp3");
 pageTurnSound.volume = 0.6;
 
 // États
-const savedVolume = localStorage.getItem("volume");
+const savedVolume = localStorage.getItem("volume") || "off";
 let isMuted = savedVolume === "off";
-pageTurnSound.muted = false;
+pageTurnSound.muted = isMuted;
 let userHasInteracted = false;
 
 // Déblocage de l'audio
@@ -63,6 +63,7 @@ const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
 
 pageTurnBtn.forEach((el, index) => {
   el.addEventListener("click", () => {
+    userHasInteracted = true;
     playPageSound();
 
     const pageTurnId = el.getAttribute("data-page");

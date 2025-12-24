@@ -3,7 +3,7 @@ const modeToggle = document.getElementById('readerModeToggle');
 const modeIcon = modeToggle.querySelector('i');
 const modeTitle = modeToggle.querySelector('.link-title');
 
-const savedReaderMode = localStorage.getItem("readerMode");
+const savedReaderMode = localStorage.getItem("readerMode") || "book";
 let isEreaderMode = savedReaderMode === "eReader";
 
 // Passer en mode liseuse
