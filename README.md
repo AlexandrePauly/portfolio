@@ -21,25 +21,14 @@ L'objectif était d'apprendre à faire des animations et à monter en compétenc
 
 >**_Attention :_** Évitez de modifier l'arborescence du projet pour ne pas casser les url !
 
-## Personnalisation
+## Résultat
 
-Si vous souhaitez personnaliser l'application, vous pouvez effectuer les modifications suivantes :
+<img width="1896" height="930" alt="image" src="https://github.com/user-attachments/assets/17361f31-f514-4563-9100-12b552579855" />
 
-- Dans le fichier `index.html`, vous pouvez modifier la structure HTML du contenu de l'application en ajoutant, modifiant ou supprimant des éléments.
-- Dans le dossier `css`, vous pouvez personnaliser l'apparence de l'application en modifiant les styles CSS. Les styles sont partagés en plusieurs fichiers :
-    - footer.css : Style des éléments du footer.
-    - header.css : Style des éléments du header.
-    - main.css : Styles des éléments du main.
-    - styles.css : Styles des éléments autres, ainsi que la partie responsive du projet.
-- Dans le dossier `img`, vous accéder à l'ensemble des images du projet.
-- Dans le dossier `js`, vous pouvez personnaliser les différentes fonctionnalités dynamiques de l'application :
-    - buttonForm.js : Vérification du formulaire et animations du bouton de validation du même formulaire.
-    - img_size.js : Permet d'afficher certaines des images présentes sur le projet.
-    - onloadFunction.js : Toutes les fonctions à exécuter au chargement de la page.
-    - popupProject.js : Affichage d'une popup et formatage de son contenu à partir d'un fichier json.
-    - script.js : Fonctions basiques.
-    - scrollFunciton.js : Animations à afficher en fonction de la position du scroll sur la page.
-- Dans le dossier `json`, vous pouvez modifier les données affichées dynamiquement lors de l'ouverte de la popup des projets.
+<img width="1891" height="921" alt="image" src="https://github.com/user-attachments/assets/2650940d-9352-4dbf-a4fe-4b38b0445b31" />
+
+<img width="1680" height="835" alt="image" src="https://github.com/user-attachments/assets/1fdef032-892e-4986-9ff5-92d454a512ae" />
+
 
 ## Auteur
 
