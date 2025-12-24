@@ -48,4 +48,4 @@ Veuillez noter que cette application est destinée à des fins éducatives et ex
 
 ## Contact
 
-Pour toute question ou demande de support, veuillez contacter [alexandre.pauly@cy-tech.fr](mailto:alexandre.pauly@cy-tech.fr).
+Pour toute question ou demande de support, veuillez contacter [alexandre.pauly@cy-tech.fr](mailto:alexandrepauly775@gmail.com).
