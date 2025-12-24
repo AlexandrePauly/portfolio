@@ -28,23 +28,23 @@ function showToast(type){
       toastIcon.classList.add("bx-check");
       toast.style.borderLeftColor = 'var(--toast-success-color)';
       toastContentIcon.style.backgroundColor = 'var(--toast-success-color)';
-      document.getElementById("toast-title").innerHTML = 'Success';
+      document.getElementById("toast-title").innerHTML = contentData[currentLanguage].toastTitleSuccess;
       if (type == "mail_copied") {
-        document.getElementById("toast-label").innerHTML = 'Email successfully copied';
+        document.getElementById("toast-label").innerHTML = contentData[currentLanguage].toastLabelMailSuccess;
       }
       else {
-        document.getElementById("toast-label").innerHTML = 'Phone number successfully copied';
+        document.getElementById("toast-label").innerHTML = contentData[currentLanguage].toastLabelPhoneSuccess;
       }
     } catch (error) {
       toastIcon.classList.add("bx-x");
       toast.style.borderLeftColor = 'var(--toast-error-color)';
       toastContentIcon.style.backgroundColor = 'var(--toast-error-color)';
-      document.getElementById("toast-title").innerHTML = 'Error';
+      document.getElementById("toast-title").innerHTML = contentData[currentLanguage].toastTitleError;
       if (type == "mail_copied") {
-        document.getElementById("toast-label").innerHTML = 'Unfortunately, we did not copy the email.';
+        document.getElementById("toast-label").innerHTML = contentData[currentLanguage].toastLabelMailError;
       }
       else {
-        document.getElementById("toast-label").innerHTML = 'Unfortunately, we did not copy the phone number.';
+        document.getElementById("toast-label").innerHTML = contentData[currentLanguage].toastLabelPhoneError;
       }
     }
 

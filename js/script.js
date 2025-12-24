@@ -50,50 +50,62 @@ const flashlight = document.querySelector('.flashlight');
 const customCursor = document.querySelector('.custom-cursor');
 const infoText = document.querySelector('.info-text');
 
+// Son de lampe
+const flashlightSound = new Audio("assets/sound/flashlight.mp3");
+flashlightSound.volume = 0.6;
+flashlightSound.muted = false;
+
 // État initial (mode sombre)
 let isLightMode = false;
 
 lightToggle.addEventListener('click', (e) => {
     e.preventDefault();
-    
-    isLightMode = !isLightMode;
-    
-    if (isLightMode) {
-        // Activer le mode lumière
-        body.classList.add('light-mode');
-        body.classList.remove('dark-mode');
-        icon.classList.remove('bx-sun');
-        icon.classList.add('bx-moon');
 
-        // Utiliser la fonction i18n pour le texte
-        if (typeof updateLightToggleText === 'function') {
-            updateLightToggleText();
-        } else {
-            title.textContent = 'Dark'; // Fallback si i18n pas chargé
-        }
+    const buttonMode = document.querySelector('#readerModeToggle .link-icon i');
 
-        flashlight.style.opacity = '0';
-        customCursor.style.opacity = '0';
-    } else {
-        // Activer le mode sombre
-        body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
-        icon.classList.remove('bx-moon');
-        icon.classList.add('bx-sun');
+    if (buttonMode.classList.value.includes('bx-mobile')) {
+        isLightMode = !isLightMode;
+
+        flashlightSound.currentTime = 0; // permet de rejouer rapidement
+        flashlightSound.play();
         
-        // Utiliser la fonction i18n pour le texte
-        if (typeof updateLightToggleText === 'function') {
-            updateLightToggleText();
-        } else {
-            title.textContent = 'Light'; // Fallback si i18n pas chargé
-        }
+        if (isLightMode) {
+            // Activer le mode lumière
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            icon.classList.remove('bx-sun');
+            icon.classList.add('bx-moon');
 
-        flashlight.style.opacity = '1';
-        customCursor.style.opacity = '1';
-        infoText.style.opacity = '1';
-        setTimeout(() => {
-            infoText.style.opacity = '0';
-        }, 5000);
+            // Utiliser la fonction i18n pour le texte
+            if (typeof updateLightToggleText === 'function') {
+                updateLightToggleText();
+            } else {
+                title.textContent = 'Dark'; // Fallback si i18n pas chargé
+            }
+
+            flashlight.style.opacity = '0';
+            customCursor.style.opacity = '0';
+        } else {
+            // Activer le mode sombre
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+            icon.classList.remove('bx-moon');
+            icon.classList.add('bx-sun');
+            
+            // Utiliser la fonction i18n pour le texte
+            if (typeof updateLightToggleText === 'function') {
+                updateLightToggleText();
+            } else {
+                title.textContent = 'Light'; // Fallback si i18n pas chargé
+            }
+
+            flashlight.style.opacity = '1';
+            customCursor.style.opacity = '1';
+            infoText.style.opacity = '1';
+            setTimeout(() => {
+                infoText.style.opacity = '0';
+            }, 5000);
+        }
     }
 });
 

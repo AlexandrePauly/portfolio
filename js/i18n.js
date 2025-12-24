@@ -1,7 +1,7 @@
 // Permet de gérer le contenu dynamiquement en fonction de la langue sélectionnée
 // Dans le html, les éléments contiennent les valeurs françaises en valeur par défaut
 
-let currentLanguage = 'fr'; // langue par défaut
+let currentLanguage = 'en'; // langue par défaut
 
 // Stockage du contenu
 let contentData = {};
@@ -46,7 +46,7 @@ langToggle.addEventListener('click', e => {
   renderProjects(contentData, currentLanguage);
 });
 
-function get_cv() {
+function getCV() {
   window.open(contentData[currentLanguage].downloadCVLink);
 }
 
@@ -158,11 +158,11 @@ function renderProjects(data, lang) {
           <h3>${project.title}</h3>
     `;
 
-    if (project.previewLink !== undefined) {
-      expHTML = expHTML + `
-          <a href="${project.previewLink}">${data[lang].buttonPreview}<i class="bx bx-link-external"></i></a>
-      `;
-    } 
+    // if (project.previewLink !== undefined) {
+    //   expHTML = expHTML + `
+    //       <a href="${project.previewLink}">${data[lang].buttonPreview}<i class="bx bx-link-external"></i></a>
+    //   `;
+    // } 
 
     expHTML = expHTML + `
         </div>

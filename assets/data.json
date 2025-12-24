@@ -135,7 +135,13 @@
     "buttonLight": "Clair",
     "buttonDark": "Sombre",
     "buttonTranslate": "Traduire",
-    "buttonProfile": "Profil"
+    "buttonProfile": "Profil",
+    "toastTitleSuccess": "Succès",
+    "toastLabelMailSuccess": "Email correctement copié",
+    "toastLabelPhoneSuccess": "Numéro de téléphone correctement copié",
+    "toastTitleError": "Erreur",
+    "toastLabelMailError": "Malheureusement, nous n'avons pas pu copier l'email",
+    "toastLabelPhoneError": "Malheureusement, nous n'avons pas pu copier le numéro de téléphone"
   },
   "en": {
     "infoText": "🔦 Move your mouse to explore with the torchlight",
@@ -272,6 +278,12 @@
     "buttonLight": "Light",
     "buttonDark": "Dark",
     "buttonTranslate": "Translate",
-    "buttonProfile": "Profile"
+    "buttonProfile": "Profile",
+    "toastTitleSuccess": "Success",
+    "toastLabelMailSuccess": "Email successfully copied",
+    "toastLabelPhoneSuccess": "Phone number successfully copied",
+    "toastTitleError": "Error",
+    "toastLabelMailError": "Unfortunately, we did not copy the email",
+    "toastLabelPhoneError": "Unfortunately, we did not copy the phone number"
   }
 }

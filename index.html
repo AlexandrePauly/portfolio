@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/features.css">
+    <link rel="stylesheet" href="css/features.css"> <!-- Styles pour les features (menu, toasts, popup, etc.)-->
+    <link rel="stylesheet" href="css/style.css">    <!-- Styles de la page -->
     
     <!-- Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer"> <!-- Website : https://fontawesome.com/v4/icons/ --> 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/> <!-- Website : https://boxicons.com/ -->
 
     <!-- JavaScript -->
-    <script type="text/javascript" src="js/script.js" defer></script>
-    <script type="text/javascript" src="js/i18n.js" defer></script> <!-- Fonctions pour changer le contenu : permet de changer le contenu dynamiquement en fonction de la langue -->
-    <script type="text/javascript" src="js/img_size.js" defer></script> <!-- Fonctions pour afficher les images en grand -->
-    <script type="text/javascript" src="js/page_animation.js" defer></script> <!-- Fonctions pour animer les pages -->
-    <script type="text/javascript" src="js/toast.js" defer></script> <!-- Fonctions pour afficher les toasts -->
-    <script type="text/javascript" src="js/cursor.js" defer></script> <!-- Fonctions pour faire apparaître/disparaître le curseur custom -->
+    <script type="text/javascript" src="js/cursor.js" defer></script>             <!-- Fonctions pour faire apparaître/disparaître le curseur custom -->
+    <script type="text/javascript" src="js/i18n.js" defer></script>               <!-- Fonctions pour changer le contenu : permet de changer le contenu dynamiquement en fonction de la langue -->
+    <script type="text/javascript" src="js/img_size.js" defer></script>           <!-- Fonctions pour afficher les images en grand -->
+    <script type="text/javascript" src="js/page_animation.js" defer></script>     <!-- Fonctions pour animer les pages -->
+    <script type="text/javascript" src="js/script.js" defer></script>             <!-- Fonctions générales -->
+    <script type="text/javascript" src="js/switch_reader_mode.js" defer></script> <!-- Fonctions pour gérer le changement de mode de lecture du contenu -->
+    <script type="text/javascript" src="js/toast.js" defer></script>              <!-- Fonctions pour afficher les toasts -->
 
     <!-- Logo Header -->
     <link rel="shortcut icon" href="assets/img/profile_picture.png" type="image/x-icon">
@@ -36,275 +37,313 @@
     <!-- Info -->
     <div class="info-text" data-i18n="infoText">🔦 Move your mouse to explore with the torchlight</div>
 
-    <div class="wrapper">
-      <!-- Armature du livre -->
-      <div class="cover cover-left"></div>
-      <div class="cover cover-right"></div>
+    <div class="wrapper book-mode">
+      <!-- Mode livre -->
+      <div class="book-container">
+          <!-- Armature du livre -->
+          <div class="cover cover-left"></div>
+          <div class="cover cover-right"></div>
 
-      <!-- Contenu du livre -->
-      <div class="book">
-        <!-- Profil/présentation -->
-        <div class="book-page page-left container-img">
-          <div class="profile-page">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="0"></div>
+          <!-- Contenu du livre -->
+          <div class="book">
+            <!-- Profil/présentation -->
+            <div class="book-page page-left container-img">
+              <div class="profile-page">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="0"></div>
 
-            <img src="assets/img/profile_picture.png" alt=""/>
-            <h1>Alexandre Pauly</h1>
-            <h3 data-i18n="jobTitle">Data Science student</h3>
-            <div class="social-media">
-              <a class="tooltip" onclick="showToast('phone_copied')">
-                <i class="bx bxs-phone"></i>
-                <span class="tooltiptext">+33 6 49 24 58 34</span>
-              </a>
-              <a class="tooltip" onclick="showToast('mail_copied')">
-                <i class="bx bxs-envelope"></i>
-                <span class="tooltiptext">alexandrepauly775@gmail.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/pauly-alexandre" target="_blank"><i class="bx bxl-linkedin"></i></a>
-              <a href="https://github.com/AlexandrePauly" target="_blank"><i class="bx bxl-github"></i></a>
-            </div>
-            <p data-i18n="aboutText">
-              Hi! My name is Alexandre, and I'm passionate about data, innovation, and digital transformation. Driven by curiosity, I love exploring new horizons, whether through my projects or my travels. Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.
-            </p>
-
-            <!-- Boutons -->
-            <div class="btn-box">
-              <a onclick="get_cv()" class="btn">
-                <i class="bx bxs-download"></i>
-                <span data-i18n="downloadCVTitle">Download CV</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Page 1 & 2 -->
-        <div class="book-page page-right turn" id="turn-1">
-          <!-- Page 1 (work experience) -->
-          <div class="page-front">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="1"></div>
-
-            <h1 class="title" data-i18n="workExperienceTitle">Work Experience</h1>
-            
-            <!-- Création dynamique du contenu expérience professionnelle -->
-            <div class="workeduc-box" id="workExperienceContainer"></div>
-
-            <span class="number-page">1</span>
-            <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-1">
-              <i class="bx bx-chevron-right"></i>
-            </span>
-          </div>
-
-          <!-- Page 2 (education) -->
-          <div class="page-back">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="2"></div>
-
-            <h1 class="title" data-i18n="educationTitle">Education</h1>
-
-            <!-- Création dynamique du contenu formation -->
-            <div class="workeduc-box" id="educationContainer"></div>
-
-            <span class="number-page">2</span>
-            <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-1">
-              <i class="bx bx-chevron-left"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- Page 3 & 4 -->
-        <div class="book-page page-right turn" id="turn-2">
-          <!-- Page 3 (My Skills) -->
-          <div class="page-front">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="3"></div>
-
-            <h1 class="title" data-i18n="skillsTitle">My Skills</h1>
-            <div class="skills-box">
-              <div class="skills-content">
-                <h3 data-i18n="skillsDataScience">Data Science & Analysis</h3>
-                <div class="content">
-                  <span><img src="assets/img/logo/python.png" alt="">Python</span>
-                  <span><i class="bx bx-data"></i>SQL, MySQL</span>
-                  <span><img src="assets/img/logo/excel.png" alt="">Excel</span>
-                  <span><img src="assets/img/logo/powerbi.png" alt="">Power BI</span>
+                <img src="assets/img/profile_picture.png" alt=""/>
+                <h1>Alexandre Pauly</h1>
+                <h3 data-i18n="jobTitle">Data Science student</h3>
+                <div class="social-media">
+                  <a class="tooltip" onclick="showToast('phone_copied')">
+                    <i class="bx bxs-phone"></i>
+                    <span class="tooltiptext">+33 6 49 24 58 34</span>
+                  </a>
+                  <a class="tooltip" onclick="showToast('mail_copied')">
+                    <i class="bx bxs-envelope"></i>
+                    <span class="tooltiptext">alexandrepauly775@gmail.com</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/pauly-alexandre" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                  <a href="https://github.com/AlexandrePauly" target="_blank"><i class="bx bxl-github"></i></a>
                 </div>
-              </div>
+                <p data-i18n="aboutText">
+                  Hi! My name is Alexandre, and I'm passionate about data, innovation, and digital transformation. Driven by curiosity, I love exploring new horizons, whether through my projects or my travels. Today, I want to combine my technical skills, business vision, and creativity to contribute to projects that truly make an impact.
+                </p>
 
-              <div class="skills-content">
-                <h3 data-i18n="skillsWebDev">Web Development</h3>
-                <div class="content">
-                  <span><img src="assets/img/logo/html.png" alt="">HTML</span>
-                  <span><img src="assets/img/logo/css.png" alt="">CSS</span>
-                  <span><img src="assets/img/logo/js.png" alt="">JS</span>
-                  <span><img src="assets/img/logo/php.png" alt="">PHP</span>
-                  <span><img src="assets/img/logo/angular.png" alt="">Angular</span>
-                  <span><img src="assets/img/logo/nodejs.png" alt="">Nodejs</span>
-                  <span><img src="assets/img/logo/react_js.png" alt="">React</span>
-                  <span><img src="assets/img/logo/figma.png" alt="">Figma</span>
-                </div>
-              </div>
-
-              <div class="skills-content">
-                <h3 data-i18n="skillsProgramming">Programming</h3>
-                <div class="content">
-                  <span><img src="assets/img/logo/java.png" alt="">Java</span>
-                  <span><img src="assets/img/logo/c.png" alt="">C, C++</span>
-                  <span><i class="bx bx-terminal"></i>Bash</span>
-                </div>
-              </div>
-            </div>
-            <span class="number-page">3</span>
-
-            <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-2">
-              <i class="bx bx-chevron-right"></i>
-            </span>
-          </div>
-
-          <!-- Page 4 (My Skills) -->
-          <div class="page-back">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="4"></div>
-
-            <div class="skills-box">
-              <div class="skills-content">
-                <h3 data-i18n="skillsTools">Tools & Environments</h3>
-                <div class="content">
-                  <span><img src="assets/img/logo/git.png" alt="">Git/GitHub</span>
-                  <span><img src="assets/img/logo/docker.png" alt="">Docker</span>
-                  <span><img src="assets/img/logo/windows.png" alt="">Windows</span>
-                  <span><img src="assets/img/logo/linux.png" alt="">Linux</span>
-                  <span><img src="assets/img/logo/vscode.png" alt="">VS Code</span>
+                <!-- Boutons -->
+                <div class="btn-box">
+                  <a onclick="getCV()" class="btn">
+                    <i class="bx bxs-download"></i>
+                    <span data-i18n="downloadCVTitle">Download CV</span>
+                  </a>
                 </div>
               </div>
             </div>
 
-            <span class="number-page">4</span>
+            <!-- Page 1 & 2 -->
+            <div class="book-page page-right turn" id="turn-1">
+              <!-- Page 1 (work experience) -->
+              <div class="page-front">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="1"></div>
 
-            <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-2">
-              <i class="bx bx-chevron-left"></i>
-            </span>
+                <h1 class="title" data-i18n="workExperienceTitle">Work Experience</h1>
+                
+                <!-- Création dynamique du contenu expérience professionnelle -->
+                <div class="workeduc-box" id="workExperienceContainer"></div>
+
+                <span class="number-page">1</span>
+                <!-- Page suivante -->
+                <span class="nextprev-btn" data-page="turn-1">
+                  <i class="bx bx-chevron-right"></i>
+                </span>
+              </div>
+
+              <!-- Page 2 (education) -->
+              <div class="page-back">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="2"></div>
+
+                <h1 class="title" data-i18n="educationTitle">Education</h1>
+
+                <!-- Création dynamique du contenu formation -->
+                <div class="workeduc-box" id="educationContainer"></div>
+
+                <span class="number-page">2</span>
+                <!-- Page précédente -->
+                <span class="nextprev-btn back" data-page="turn-1">
+                  <i class="bx bx-chevron-left"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Page 3 & 4 -->
+            <div class="book-page page-right turn" id="turn-2">
+              <!-- Page 3 (My Skills) -->
+              <div class="page-front">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="3"></div>
+
+                <h1 class="title" data-i18n="skillsTitle">My Skills</h1>
+                <div class="skills-box">
+                  <div class="skills-content">
+                    <h3 data-i18n="skillsDataScience">Data Science & Analysis</h3>
+                    <div class="content">
+                      <span><img src="assets/img/logo/python.png" alt="">Python</span>
+                      <span><i class="bx bx-data"></i>SQL, MySQL</span>
+                      <span><img src="assets/img/logo/excel.png" alt="">Excel</span>
+                      <span><img src="assets/img/logo/powerbi.png" alt="">Power BI</span>
+                    </div>
+                  </div>
+
+                  <div class="skills-content">
+                    <h3 data-i18n="skillsWebDev">Web Development</h3>
+                    <div class="content">
+                      <span><img src="assets/img/logo/html.png" alt="">HTML</span>
+                      <span><img src="assets/img/logo/css.png" alt="">CSS</span>
+                      <span><img src="assets/img/logo/js.png" alt="">JS</span>
+                      <span><img src="assets/img/logo/php.png" alt="">PHP</span>
+                      <span><img src="assets/img/logo/angular.png" alt="">Angular</span>
+                      <span><img src="assets/img/logo/nodejs.png" alt="">Nodejs</span>
+                      <span><img src="assets/img/logo/react_js.png" alt="">React</span>
+                      <span><img src="assets/img/logo/figma.png" alt="">Figma</span>
+                    </div>
+                  </div>
+
+                  <div class="skills-content">
+                    <h3 data-i18n="skillsProgramming">Programming</h3>
+                    <div class="content">
+                      <span><img src="assets/img/logo/java.png" alt="">Java</span>
+                      <span><img src="assets/img/logo/c.png" alt="">C, C++</span>
+                      <span><i class="bx bx-terminal"></i>Bash</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="number-page">3</span>
+
+                <!-- Page suivante -->
+                <span class="nextprev-btn" data-page="turn-2">
+                  <i class="bx bx-chevron-right"></i>
+                </span>
+              </div>
+
+              <!-- Page 4 (My Skills) -->
+              <div class="page-back">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="4"></div>
+
+                <div class="skills-box">
+                  <div class="skills-content">
+                    <h3 data-i18n="skillsTools">Tools & Environments</h3>
+                    <div class="content">
+                      <span><img src="assets/img/logo/git.png" alt="">Git/GitHub</span>
+                      <span><img src="assets/img/logo/docker.png" alt="">Docker</span>
+                      <span><img src="assets/img/logo/windows.png" alt="">Windows</span>
+                      <span><img src="assets/img/logo/linux.png" alt="">Linux</span>
+                      <span><img src="assets/img/logo/vscode.png" alt="">VS Code</span>
+                    </div>
+                  </div>
+                </div>
+
+                <span class="number-page">4</span>
+
+                <!-- Page précédente -->
+                <span class="nextprev-btn back" data-page="turn-2">
+                  <i class="bx bx-chevron-left"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Page 5 & 6 -->
+            <div class="book-page page-right turn" id="turn-3">
+              <!-- Page 5 (My Next Challenges) -->
+              <div class="page-front">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="5"></div>
+
+                <h1 class="title" data-i18n="challengesTitle">My Next Challenges</h1>
+
+                <!-- Création dynamique du contenu challenges -->
+                <div class="services-box" id="challengeContainer"></div>
+
+                <span class="number-page">5</span>
+
+                <!-- Page suivante -->
+                <span class="nextprev-btn" data-page="turn-3">
+                  <i class="bx bx-chevron-right"></i>
+                </span>
+              </div>
+
+              <!-- Page 6 (Latest projects) -->
+              <div class="page-back">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="6"></div>
+
+                <h1 class="title" data-i18n="latestProjectsTitle">Latest Projects</h1>
+
+                <!-- Création dynamique du contenu projets -->
+                <div class="portfolio-box" data-project-id="0"></div>
+
+                <span class="number-page">6</span>
+
+                <!-- Page précédente -->
+                <span class="nextprev-btn back" data-page="turn-3">
+                  <i class="bx bx-chevron-left"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Page 7 & 8 -->
+            <div class="book-page page-right turn" id="turn-4">
+              <div class="page-front">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="7"></div>
+
+                <!-- Création dynamique du contenu projets -->
+                <div class="portfolio-box" data-project-id="1"></div>
+
+                <span class="number-page">7</span>
+
+                <!-- Page suivante -->
+                <span class="nextprev-btn" data-page="turn-4">
+                  <i class="bx bx-chevron-right"></i>
+                </span>
+              </div>
+
+              <!-- Page 8 (Lastest Projects) -->
+              <div class="page-back">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="8"></div>
+
+                <!-- Création dynamique du contenu projets -->
+                <div class="portfolio-box" data-project-id="2"></div>
+
+                <span class="number-page">8</span>
+
+                <!-- Page précédente -->
+                <span class="nextprev-btn back" data-page="turn-4">
+                  <i class="bx bx-chevron-left"></i>
+                </span>
+              </div>
+            </div>
+
+            <!-- Page 9 & 10 -->
+            <div class="book-page page-right turn" id="turn-5">
+              <!-- Page 9 -->
+              <div class="page-front">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="9"></div>
+
+                <!-- Création dynamique du contenu projets -->
+                <div class="portfolio-box" data-project-id="3"></div>
+
+                <span class="number-page">9</span>
+
+                <!-- Page suivante -->
+                <span class="nextprev-btn" data-page="turn-5">
+                  <i class="bx bx-chevron-right"></i>
+                </span>
+              </div>
+
+              <!-- Page 10 -->
+              <div class="page-back">
+                <!-- Création dynamique du bookmark -->
+                <div class="bookmark-container" data-bookmark-id="10"></div>
+
+                <!-- Création dynamique du contenu projets -->
+                <div class="portfolio-box" data-project-id="4"></div>
+
+                <span class="number-page">10</span>
+
+                <!-- Page précédente -->
+                <span class="nextprev-btn back" data-page="turn-5">
+                  <i class="bx bx-chevron-left"></i>
+                </span>
+
+                <!-- Home button -->
+                <a href="#" class="back-profile" onclick="backProfileBtn()">
+                  <p data-i18n="buttonProfile">Profile</p>
+                  <i class="bx bxs-user"></i>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+      </div>
 
-        <!-- Page 5 & 6 -->
-        <div class="book-page page-right turn" id="turn-3">
-          <!-- Page 5 (My Next Challenges) -->
-          <div class="page-front">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="5"></div>
+      <!-- Mode liseuse -->
+      <div class="ereader-container">
+          <div class="ereader">
+              <div class="ereader-power"></div>
+              
+              <div class="ereader-screen">
+                  <div class="ereader-content">
+                      <h1>Portfolio</h1>
+                      <p>
+                          Le contenu de la liseuse sera chargé dynamiquement ici.
+                      </p>
+                      <p>
+                          Vous pouvez naviguer avec les boutons en bas de l'écran.
+                      </p>
+                      <p>
+                          Ce format portrait est optimisé pour une lecture confortable,
+                          similaire à une vraie liseuse électronique.
+                      </p>
+                  </div>
+              </div>
 
-            <h1 class="title" data-i18n="challengesTitle">My Next Challenges</h1>
-
-            <!-- Création dynamique du contenu challenges -->
-            <div class="services-box" id="challengeContainer"></div>
-
-            <span class="number-page">5</span>
-
-            <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-3">
-              <i class="bx bx-chevron-right"></i>
-            </span>
+              <div class="ereader-nav">
+                  <button class="ereader-nav-btn">
+                      <i class="bx bx-chevron-left"></i>
+                      Précédent
+                  </button>
+                  <span class="ereader-page-indicator">Page 1 / 10</span>
+                  <button class="ereader-nav-btn">
+                      Suivant
+                      <i class="bx bx-chevron-right"></i>
+                  </button>
+              </div>
           </div>
-
-          <!-- Page 6 (Latest projects) -->
-          <div class="page-back">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="6"></div>
-
-            <h1 class="title" data-i18n="latestProjectsTitle">Latest Projects</h1>
-
-            <!-- Création dynamique du contenu projets -->
-            <div class="portfolio-box" data-project-id="0"></div>
-
-            <span class="number-page">6</span>
-
-            <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-3">
-              <i class="bx bx-chevron-left"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- Page 7 & 8 -->
-        <div class="book-page page-right turn" id="turn-4">
-          <div class="page-front">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="7"></div>
-
-            <!-- Création dynamique du contenu projets -->
-            <div class="portfolio-box" data-project-id="1"></div>
-
-            <span class="number-page">7</span>
-
-            <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-4">
-              <i class="bx bx-chevron-right"></i>
-            </span>
-          </div>
-
-          <!-- Page 8 (Lastest Projects) -->
-          <div class="page-back">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="8"></div>
-
-            <!-- Création dynamique du contenu projets -->
-            <div class="portfolio-box" data-project-id="2"></div>
-
-            <span class="number-page">8</span>
-
-            <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-4">
-              <i class="bx bx-chevron-left"></i>
-            </span>
-          </div>
-        </div>
-
-        <!-- Page 9 & 10 -->
-        <div class="book-page page-right turn" id="turn-5">
-          <!-- Page 9 -->
-          <div class="page-front">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="9"></div>
-
-            <!-- Création dynamique du contenu projets -->
-            <div class="portfolio-box" data-project-id="3"></div>
-
-            <span class="number-page">9</span>
-
-            <!-- Page suivante -->
-            <span class="nextprev-btn" data-page="turn-5">
-              <i class="bx bx-chevron-right"></i>
-            </span>
-          </div>
-
-          <!-- Page 10 -->
-          <div class="page-back">
-            <!-- Création dynamique du bookmark -->
-            <div class="bookmark-container" data-bookmark-id="10"></div>
-
-            <!-- Création dynamique du contenu projets -->
-            <div class="portfolio-box" data-project-id="4"></div>
-
-            <span class="number-page">10</span>
-
-            <!-- Page précédente -->
-            <span class="nextprev-btn back" data-page="turn-5">
-              <i class="bx bx-chevron-left"></i>
-            </span>
-
-            <!-- Home button -->
-            <a href="#" class="back-profile" onclick="backProfileBtn()">
-              <p data-i18n="buttonProfile">Profile</p>
-              <i class="bx bxs-user"></i>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -332,9 +371,9 @@
         </span>
         <span class="link-title" data-i18n="buttonHome">Home</span>
       </a>
-      <a href="#" class="link">
+      <a href="#" class="link" id="readerModeToggle">
         <span class="link-icon">
-          <i class="bx bx-book-content"></i>
+          <i class="bx bx-mobile"></i>
         </span>
         <span class="link-title" data-i18n="buttonMode">Mode</span>
       </a>
@@ -363,16 +402,16 @@
 <!-- TODO -->
 <!-- 
     - idées :
-        https://uiverse.io/Cornerstone-04/moody-treefrog-55
-        https://uiverse.io/wilsondesouza/cowardly-swan-91
-        https://uiverse.io/Admin12121/soft-falcon-79
-        https://codepen.io/jh3y/pen/VwjgdLj
+      https://uiverse.io/Cornerstone-04/moody-treefrog-55
+      https://uiverse.io/wilsondesouza/cowardly-swan-91
+      https://uiverse.io/Admin12121/soft-falcon-79
+      https://codepen.io/jh3y/pen/VwjgdLj
+      https://uiverse.io/anand_4957/hungry-squid-53
 
-        CV update
-        Overview des projets dans github
-        Dezoomer la page
-        Menu en bas pour gérer les élements : langue, mode de lecture
-        éléments qui passent derrière l'écran par moment
-        écrire ou dessiner au dos du livre
-        loader livre : https://uiverse.io/anand_4957/hungry-squid-53
+      CV update
+      Overview des projets dans github
+      Dezoomer la page
+      Corriger bug son au chargement de la page
+      éléments qui passent derrière l'écran par moment
+      écrire ou dessiner au dos du livre
 -->
