@@ -1,11 +1,14 @@
 // Création du son
 const pageTurnSound = new Audio("assets/sound/page-turn.mp3");
+const pageTurnEreaderSound = new Audio("assets/sound/keyboard.mp3");
 pageTurnSound.volume = 0.6;
+pageTurnEreaderSound.volume = 0.2;
 
 // États
 const savedVolume = localStorage.getItem("volume") || "off";
 let isMuted = savedVolume === "off";
 pageTurnSound.muted = isMuted;
+pageTurnEreaderSound.muted = isMuted;
 let userHasInteracted = false;
 
 // Déblocage de l'audio
@@ -22,6 +25,13 @@ function unlockAudio() {
       pageTurnSound.currentTime = 0;
     })
     .catch(() => {});
+
+  pageTurnEreaderSound.play()
+    .then(() => {
+      pageTurnEreaderSound.pause();
+      pageTurnEreaderSound.currentTime = 0;
+    })
+    .catch(() => {});
 }
 
 // Débloquer le son au premier geste utilisateur
@@ -30,11 +40,11 @@ document.addEventListener("keydown", unlockAudio, { once: true });
 document.addEventListener("touchstart", unlockAudio, { once: true });
 
 // Fonction pour jouer le son
-function playPageSound() {
-  if (!userHasInteracted || pageTurnSound.muted) return;
+function playPageSound(sound) {
+  if (!userHasInteracted || sound.muted) return;
 
-  pageTurnSound.currentTime = 0;
-  pageTurnSound.play().catch(() => {});
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
 }
 
 // Bouton pour régler le volume
@@ -49,6 +59,7 @@ volumeToggle.addEventListener("click", (e) => {
 
   isMuted = !isMuted;
   pageTurnSound.muted = isMuted;
+  pageTurnEreaderSound.muted = isMuted;
 
   volumeIcon.classList.toggle("bx-volume-full", !isMuted);
   volumeIcon.classList.toggle("bx-volume-mute", isMuted);
@@ -64,7 +75,7 @@ const pageTurnBtn = document.querySelectorAll(".nextprev-btn");
 pageTurnBtn.forEach((el, index) => {
   el.addEventListener("click", () => {
     userHasInteracted = true;
-    playPageSound();
+    playPageSound(pageTurnSound);
 
     const pageTurnId = el.getAttribute("data-page");
     const pageTurn = document.getElementById(pageTurnId);
@@ -90,7 +101,7 @@ const totalPages = pages.length;
 function backProfileBtn() {
   pages.forEach((_, index) => {
     setTimeout(() => {
-      playPageSound();
+      playPageSound(pageTurnSound);
 
       const currentPage = totalPages - 1 - index;
       pages[currentPage].classList.remove("turn");
@@ -173,11 +184,20 @@ function updateIndicator() {
 function changePage(direction) {
   const oldPage = pagesReader[currentPageReader];
 
+  isMuted = false;
+  userHasInteracted = true;
+  pageTurnEreaderSound.muted = isMuted;
+
+  // Sauvegarde dans le localStorage
+  localStorage.setItem("volume", isMuted ? "off" : "on");
+
   // Déterminer la nouvelle page
   if (direction === "next" && currentPageReader < totalPagesReader - 1) {
     currentPageReader++;
+    playPageSound(pageTurnEreaderSound);
   } else if (direction === "prev" && currentPageReader > 0) {
     currentPageReader--;
+    playPageSound(pageTurnEreaderSound);
   } else {
     return;
   }
