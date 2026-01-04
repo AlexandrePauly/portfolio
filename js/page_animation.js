@@ -129,17 +129,13 @@ pages.forEach((_, index) => {
   }, (index + 1) * 300 + 2100);
 });
 
-/* =====================================================
-   E-READER PAGE SYSTEM
-===================================================== */
-
-const pagesReader = document.querySelectorAll(".ereader-content > div");
-const prevBtnReader = document.getElementById("prevBtn");
-const nextBtnReader = document.getElementById("nextBtn");
-const pageIndicatorReader = document.getElementById("pageIndicator");
-
-let currentPageReader = 0;
-const totalPagesReader = pagesReader.length;
+// Intialisation des variables du reader
+const pagesReader = document.querySelectorAll(".ereader-content > div"); // Nombre de pages
+const prevBtnReader = document.getElementById("prevBtn");                // Bouton précédent
+const nextBtnReader = document.getElementById("nextBtn");                // Bouton suivant
+const pageIndicatorReader = document.getElementById("pageIndicator");    // Indicateur de la page actuelle
+let currentPageReader = 0;                                               // Page actuelle
+const totalPagesReader = pagesReader.length;                             // Nombre de pages
 
 // Fonction pour initialiser le reader
 function initReader() {

@@ -216,9 +216,9 @@ function updateLightToggleText() {
   const title = document.querySelector('#lightToggle .link-title');
   if (title && contentData[currentLanguage]) {
     // Vérifier si on est en mode lumière ou sombre
-    const isLightMode = document.body.classList.contains('light-mode');
+    // const isLightMode = document.body.classList.contains('light-mode');
     title.textContent = isLightMode 
       ? contentData[currentLanguage].buttonDark 
       : contentData[currentLanguage].buttonLight;
-  }
+  }  
 }

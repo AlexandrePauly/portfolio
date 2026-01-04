@@ -503,78 +503,59 @@ body.dark-mode .link:hover {
 
 /* Effet de lampe torche */
 .flashlight {
-    position: fixed;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    background: radial-gradient(
-        circle,
-        rgba(255, 245, 200, 0.6) 0%,
-        rgba(255, 245, 200, 0.4) 20%,
-        rgba(255, 245, 200, 0.3) 30%,
-        rgba(255, 245, 200, 0.15) 45%,
-        rgba(255, 245, 200, 0.05) 50%,
-        transparent 70%
-    );
-    transform: translate(-50%, -50%);
-    mix-blend-mode: screen;
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+      circle,
+      rgba(255, 245, 200, 0.6) 0%,
+      rgba(255, 245, 200, 0.4) 20%,
+      rgba(255, 245, 200, 0.3) 30%,
+      rgba(255, 245, 200, 0.15) 45%,
+      rgba(255, 245, 200, 0.05) 50%,
+      transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
 }
 
 body.dark-mode .flashlight {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Effet de lueur centrale plus intense */
 .flashlight::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle,
-        rgba(255, 250, 220, 0.6) 0%,
-        rgba(255, 245, 200, 0.4) 30%,
-        transparent 70%
-    );
-    animation: pulse 2s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(
+      circle,
+      rgba(255, 250, 220, 0.6) 0%,
+      rgba(255, 245, 200, 0.4) 30%,
+      transparent 70%
+  );
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0%, 100% {
-        opacity: 0.8;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-/* Curseur personnalisé (point central) */
-.custom-cursor {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: rgba(255, 245, 200, 0.9);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 245, 200, 0.8);
-    transform: translate(-50%, -50%);
-}
-
-body.dark-mode .custom-cursor {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
 /* Overlay sombre renforcé en mode dark */

@@ -42,13 +42,13 @@ bookPagesBack.forEach(page => {
     }
 });
 
-const lightToggle = document.getElementById('lightToggle');
-const icon = lightToggle.querySelector('i');
-const title = lightToggle.querySelector('.link-title');
-const body = document.body;
-const flashlight = document.querySelector('.flashlight');
-const customCursor = document.querySelector('.custom-cursor');
-const infoText = document.querySelector('.info-text');
+// Initialisation des variables du menu
+const lightToggle = document.getElementById('lightToggle');    // Luminosité
+const icon = lightToggle.querySelector('i');                   // Icon de la luminosité
+const title = lightToggle.querySelector('.link-title');        // Label de la luminosité
+const body = document.body;                                    // Élément body
+const flashlight = document.querySelector('.flashlight');      // Lampe torche
+const infoText = document.querySelector('.info-text');         // Notification pour expliquer l'utilisation de la torche
 
 // Son de lampe
 const flashlightSound = new Audio("assets/sound/flashlight.mp3");
@@ -62,42 +62,38 @@ lightToggle.addEventListener('click', (e) => {
     e.preventDefault();
 
     const buttonMode = document.querySelector('#readerModeToggle .link-icon i');
+    const ereader = document.querySelector(".ereader-screen");
 
-    if (buttonMode.classList.value.includes('bx-mobile')) {
-        isLightMode = !isLightMode;
+    isLightMode = !isLightMode;
 
-        // Sauvegarde dans le localStorage
-        localStorage.setItem('lightMode', isLightMode);
+    // Sauvegarde dans le localStorage
+    localStorage.setItem('lightMode', isLightMode);
 
-        const savedVolume = localStorage.getItem("volume") || "off";
+    const savedVolume = localStorage.getItem("volume") || "off";
 
-        if (savedVolume === "on") {
-            flashlightSound.currentTime = 0; // permet de rejouer rapidement
-            flashlightSound.play();
-        }
-        
+    if (savedVolume === "on") {
+        flashlightSound.currentTime = 0; // permet de rejouer rapidement
+        flashlightSound.play();
+    }
+
+    if (buttonMode.classList.value.includes('bx-mobile')) {      
         if (isLightMode) {
-            // Activer le mode lumière
-            body.classList.add('light-mode');
-            body.classList.remove('dark-mode');
-            icon.classList.remove('bx-sun');
-            icon.classList.add('bx-moon');
-
-            // Utiliser la fonction i18n pour le texte
-            if (typeof updateLightToggleText === 'function') {
-                updateLightToggleText();
-            } else {
-                title.textContent = 'Dark'; // Fallback si i18n pas chargé
-            }
-
-            flashlight.style.opacity = '0';
-            customCursor.style.opacity = '0';
+            switch_on_light();
+        } else {
+            switch_off_light();
+        }
+    }
+    else {
+        if (isLightMode) {
+            switch_on_light();
+            body.style.background = "var(--bg-color)";
+            ereader.style.background = "var(--bg-ereader-color)";
         } else {
             // Activer le mode sombre
-            body.classList.add('dark-mode');
-            body.classList.remove('light-mode');
-            icon.classList.remove('bx-moon');
+            // body.classList.add('dark-mode');
             icon.classList.add('bx-sun');
+            body.style.background = "var(--bg-dark-color)";
+            ereader.style.background = "var(--bg-ereader-dark-color)";
             
             // Utiliser la fonction i18n pour le texte
             if (typeof updateLightToggleText === 'function') {
@@ -106,23 +102,56 @@ lightToggle.addEventListener('click', (e) => {
                 title.textContent = 'Light'; // Fallback si i18n pas chargé
             }
 
-            flashlight.style.opacity = '1';
-            customCursor.style.opacity = '1';
-            infoText.style.opacity = '1';
-            setTimeout(() => {
-                infoText.style.opacity = '0';
-            }, 5000);
+            flashlight.style.opacity = '0';
         }
     }
 });
 
+// Fonction pour éteindre la lumière (livre)
+function switch_off_light() {
+    // Activer le mode sombre
+    body.classList.add('dark-mode');
+    body.classList.remove('light-mode');
+    icon.classList.remove('bx-moon');
+    icon.classList.add('bx-sun');
+    
+    // Utiliser la fonction i18n pour le texte
+    if (typeof updateLightToggleText === 'function') {
+        updateLightToggleText();
+    } else {
+        title.textContent = 'Light'; // Fallback si i18n pas chargé
+    }
+
+    flashlight.style.opacity = '1';
+    infoText.style.opacity = '1';
+    setTimeout(() => {
+        infoText.style.opacity = '0';
+    }, 5000);
+}
+
+// Fonction pour allumer la lumière (livre et liseuse)
+function switch_on_light() {
+    // Activer le mode lumière
+    body.classList.add('light-mode');
+    body.classList.remove('dark-mode');
+    icon.classList.remove('bx-sun');
+    icon.classList.add('bx-moon');
+
+    // Utiliser la fonction i18n pour le texte
+    if (typeof updateLightToggleText === 'function') {
+        updateLightToggleText();
+    } else {
+        title.textContent = 'Dark'; // Fallback si i18n pas chargé
+    }
+
+    flashlight.style.opacity = '0';
+}
+
 // Suivre le curseur pour l'effet lampe torche
 document.addEventListener('mousemove', (e) => {
-    if (!isLightMode) {
+    if (!isLightMode & !isEreaderMode) {
         flashlight.style.left = e.clientX + 'px';
         flashlight.style.top = e.clientY + 'px';
-        customCursor.style.left = e.clientX + 'px';
-        customCursor.style.top = e.clientY + 'px';
     }
 });
 

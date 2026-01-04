@@ -38,6 +38,7 @@ modeToggle.addEventListener('click', (e) => {
         wrapper.classList.add('ereader-mode');
         modeIcon.classList.remove('bx-mobile');
         modeIcon.classList.add('bx-book-content');
+        switch_on_light();
     }
     // Passer en mode livre
     else {
