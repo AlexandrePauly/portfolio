@@ -57,10 +57,13 @@ function getCV() {
 
 // Chargement dynamique des expériences professionnelles
 function renderWorkExperience(data, lang) {
-  const container = document.getElementById("workExperienceContainer");
-  if (!container) return;
+  container = document.getElementById("workExperienceContainer");
+  containerReader = document.getElementById("workExperienceContainerReader");
+  
+  if (!container || !containerReader) return;
 
   container.innerHTML = ""; // reset
+  containerReader.innerHTML = ""; // reset
 
   data[lang].workExperience.forEach(elt => {
     const expHTML = `
@@ -81,15 +84,19 @@ function renderWorkExperience(data, lang) {
     `;
 
     container.insertAdjacentHTML("beforeend", expHTML);
+    containerReader.insertAdjacentHTML("beforeend", expHTML);
   });
 }
 
 // Chargement dynamique des formations
 function renderEducation(data, lang) {
   const container = document.getElementById("educationContainer");
-  if (!container) return;
+  const containerReader = document.getElementById("educationContainerReader");
+
+  if (!container || !containerReader) return;
 
   container.innerHTML = ""; // reset
+  containerReader.innerHTML = ""; // reset
 
   data[lang].education.forEach(elt => {
     const expHTML = `
@@ -110,15 +117,19 @@ function renderEducation(data, lang) {
     `;
 
     container.insertAdjacentHTML("beforeend", expHTML);
+    containerReader.insertAdjacentHTML("beforeend", expHTML);
   });
 }
 
 // Chargement dynamique des challenges
 function renderChallenges(data, lang) {
   const container = document.getElementById("challengeContainer");
-  if (!container) return;
+  const containerReader = document.getElementById("challengeContainerReader");
+  
+  if (!container || !containerReader) return;
 
   container.innerHTML = ""; // reset
+  containerReader.innerHTML = ""; // reset
 
   data[lang].challenges.forEach(elt => {
     let expHTML = `
@@ -139,59 +150,64 @@ function renderChallenges(data, lang) {
     `;
 
     container.insertAdjacentHTML("beforeend", expHTML);
+    containerReader.insertAdjacentHTML("beforeend", expHTML);
   });
 }
 
 // Chargement dynamique des projets
 function renderProjects(data, lang) {
-  const portfolioBox = document.querySelectorAll('.portfolio-box');
+  const portfolioBoxBook = document.querySelectorAll('.portfolio-box-book');
+  const portfolioBoxReader = document.querySelectorAll('.portfolio-box-reader');
+  const portfolioBox = [portfolioBoxBook, portfolioBoxReader]
   
-  portfolioBox.forEach(box => {
-    const projectId = box.dataset.projectId;
-    const project = data[lang].projects[projectId];
-    
-    if (!project) return;
+  portfolioBox.forEach(elt => {
+    elt.forEach(box => {
+      const projectId = box.dataset.projectId;
+      const project = data[lang].projects[projectId];
+      
+      if (!project) return;
 
-    portfolioBox[projectId].innerHTML = ""; // reset
+      elt[projectId].innerHTML = ""; // reset
 
-    let expHTML = `
-      <div class="img-box">
-        <img src="${project.img}" alt="" class="expandabled-img" />
-      </div>
-      <div class="info-box">
-        <div class="info-title">
-          <h3>${project.title}</h3>
-    `;
-
-    // if (project.previewLink !== undefined) {
-    //   expHTML = expHTML + `
-    //       <a href="${project.previewLink}">${data[lang].buttonPreview}<i class="bx bx-link-external"></i></a>
-    //   `;
-    // } 
-
-    expHTML = expHTML + `
+      let expHTML = `
+        <div class="img-box">
+          <img src="${project.img}" alt="" class="expandabled-img" />
         </div>
+        <div class="info-box">
+          <div class="info-title">
+            <h3>${project.title}</h3>
+      `;
 
-        <div class="tags-container">
-    `;
+      // if (project.previewLink !== undefined) {
+      //   expHTML = expHTML + `
+      //       <a href="${project.previewLink}">${data[lang].buttonPreview}<i class="bx bx-link-external"></i></a>
+      //   `;
+      // } 
 
-    project.tags.forEach(tag => {
-      expHTML = expHTML + `<span class="tag">${tag}</span>`
+      expHTML = expHTML + `
+          </div>
+
+          <div class="tags-container">
+      `;
+
+      project.tags.forEach(tag => {
+        expHTML = expHTML + `<span class="tag">${tag}</span>`
+      });
+
+      expHTML = expHTML + `
+          </div>
+
+          <p>${project.context}</p>
+          <p>${project.description}</p>
+        </div>
+        <div class="btn-box">
+          <a href="${project.sourceCode}" target="_blank" class="btn">${data[lang].buttonSourceCode}</a>
+          <a href="${project.similarProjects}" target="_blank" class="btn">${data[lang].buttonSimilarProjects}</a>
+        </div>
+      `;
+
+      elt[projectId].insertAdjacentHTML("beforeend", expHTML);
     });
-
-    expHTML = expHTML + `
-        </div>
-
-        <p>${project.context}</p>
-        <p>${project.description}</p>
-      </div>
-      <div class="btn-box">
-        <a href="${project.sourceCode}" target="_blank" class="btn">${data[lang].buttonSourceCode}</a>
-        <a href="${project.similarProjects}" target="_blank" class="btn">${data[lang].buttonSimilarProjects}</a>
-      </div>
-    `;
-
-    portfolioBox[projectId].insertAdjacentHTML("beforeend", expHTML);
   });
 }
 

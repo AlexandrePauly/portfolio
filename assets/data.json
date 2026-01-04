@@ -67,7 +67,7 @@
       },
       {
         "title": "Course à pied",
-        "description": "Compléter tous les super-halfs dans les 5 prochaines années.",
+        "description": "Compléter tous les super-halfs dans les prochaines années.",
         "icon": "bx-run",
         "btnText": "En savoir plus",
         "btnLink": "https://www.finishers.com/c/superhalfs"
@@ -141,7 +141,9 @@
     "toastLabelPhoneSuccess": "Numéro de téléphone correctement copié",
     "toastTitleError": "Erreur",
     "toastLabelMailError": "Malheureusement, nous n'avons pas pu copier l'email",
-    "toastLabelPhoneError": "Malheureusement, nous n'avons pas pu copier le numéro de téléphone"
+    "toastLabelPhoneError": "Malheureusement, nous n'avons pas pu copier le numéro de téléphone",
+    "previousButtonText": "Précédent",
+    "nextButtonText": "Suivant"
   },
   "en": {
     "infoText": "🔦 Move your mouse to explore with the torchlight",
@@ -212,7 +214,7 @@
       },
       {
         "title": "Running",
-        "description": "Complete all super-half within the next 5 years.",
+        "description": "Complete all super-half within the next few years.",
         "icon": "bx-run",
         "btnText": "Read more",
         "btnLink": ""
@@ -284,6 +286,8 @@
     "toastLabelPhoneSuccess": "Phone number successfully copied",
     "toastTitleError": "Error",
     "toastLabelMailError": "Unfortunately, we did not copy the email",
-    "toastLabelPhoneError": "Unfortunately, we did not copy the phone number"
+    "toastLabelPhoneError": "Unfortunately, we did not copy the phone number",
+    "previousButtonText": "Previous",
+    "nextButtonText": "Next"
   }
 }
