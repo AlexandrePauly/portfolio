@@ -60,6 +60,8 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   overflow: hidden;
+
+  zoom: 0.8;
 }
 /* Wrapper commun */
 .wrapper {

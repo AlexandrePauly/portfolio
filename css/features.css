@@ -614,6 +614,7 @@ body.dark-mode .info-text {
     opacity: 0;
     transition: opacity 0.5s;
     z-index: 3000;
+    zoom: 1.3;
 }
 
 #imgExpand img{
