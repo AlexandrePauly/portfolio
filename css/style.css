@@ -61,7 +61,7 @@ body {
   color: var(--text-color);
   overflow: hidden;
 
-  zoom: 0.8;
+  zoom: 0.75;
 }
 /* Wrapper commun */
 .wrapper {
@@ -82,6 +82,7 @@ body {
   width: 35rem;
   height: 50rem;
   perspective: none;
+  margin: 2rem;
 }
 
 /* Livre */
@@ -152,6 +153,103 @@ body {
 .cover.cover-right.turn {
   transform: rotateY(180deg);
 }
+
+/* Couverture arrière avec décorations */
+.cover-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #6e4227;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 170, 80, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.3) 0%, transparent 60%),
+    url("https://www.transparenttextures.com/patterns/leather.png");
+  background-blend-mode: multiply;
+  background-size: cover;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 0 0.6rem rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  z-index: -1;
+}
+
+/* Motif décoratif central */
+.cover-right::before {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  color: rgba(255, 230, 200, 0.4);
+  text-shadow: 0 0 20px rgba(255, 200, 150, 0.3);
+}
+
+/* Bordure décorative brodée */
+.decorative-border {
+  position: absolute;
+  border: 3px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 230, 200, 0.6) 0px,
+    rgba(255, 230, 200, 0.6) 10px,
+    transparent 10px,
+    transparent 15px,
+    rgba(255, 230, 200, 0.4) 15px,
+    rgba(255, 230, 200, 0.4) 20px
+  ) 1;
+  pointer-events: none;
+}
+
+.decorative-border.top {
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  height: 0;
+  border-bottom: 3px dashed rgba(255, 230, 200, 0.5);
+}
+
+.decorative-border.bottom {
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  height: 0;
+  border-bottom: 3px dashed rgba(255, 230, 200, 0.5);
+}
+
+.decorative-border.left {
+  top: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  width: 0;
+  border-right: 3px dashed rgba(255, 230, 200, 0.5);
+}
+
+.decorative-border.right {
+  top: 2rem;
+  bottom: 2rem;
+  right: 2rem;
+  width: 0;
+  border-right: 3px dashed rgba(255, 230, 200, 0.5);
+}
+
+/* Coins décoratifs */
+.corner-decoration {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  color: rgba(255, 230, 200, 0.5);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.corner-decoration.top-left { top: 0.6rem; left: 0.6rem; }
+.corner-decoration.top-right { top: 0.6rem; right: 0.6rem; }
+.corner-decoration.bottom-left { bottom: 0.6rem; left: 0.6rem; }
+.corner-decoration.bottom-right { bottom: 0.6rem; right: 0.6rem; }
 
 .book {
   position: relative;
