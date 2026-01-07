@@ -171,7 +171,7 @@ function renderProjects(data, lang) {
 
       let expHTML = `
         <div class="img-box">
-          <img src="${project.img}" alt="" class="expandabled-img" />
+          <img src="${project.img}" alt="" class="expandabled-img" onclick="showSinglePict(event)" />
         </div>
         <div class="info-box">
           <div class="info-title">
