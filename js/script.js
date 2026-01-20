@@ -6,7 +6,11 @@ if (navigator.userAgent.includes("Mobile")) {
 
     const modeToggle = document.getElementById('readerModeToggle');
     modeToggle.style.display = 'none';
-    document.querySelector('body').style.zoom = 0.5;
+    const modeTitle = modeToggle.querySelector('.link-title');
+    modeTitle.forEach(modeTitleElt => {
+        modeTitleElt.style.display = 'none';
+    });
+    document.querySelector('body').style.zoom = 0.2;
 }
 
 // Gestion du hover pour les bookmarks
