@@ -6,7 +6,7 @@ if (navigator.userAgent.includes("Mobile")) {
 
     const modeToggle = document.getElementById('readerModeToggle');
     modeToggle.style.display = 'none';
-    document.querySelector('body').style.zoom = 0.7;
+    document.querySelector('body').style.zoom = 0.5;
 }
 
 // Gestion du hover pour les bookmarks
