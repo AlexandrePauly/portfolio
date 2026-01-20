@@ -1,11 +1,12 @@
 // Lorsqu'un utilisateur se connecte depuis un appareil différent d'un ordinateur, on bloque la lecture en mode liseuse
-if (navigator.userAgent.includes("Mobile")) {
+if (!navigator.userAgent.includes("Mobile")) {
     localStorage.setItem("readerMode", "eReader");
     localStorage.setItem("volume", "off");
     localStorage.setItem("lightMode", true);
 
     const modeToggle = document.getElementById('readerModeToggle');
     modeToggle.style.display = 'none';
+    document.querySelector('body').style.zoom = 0.7;
 }
 
 // Gestion du hover pour les bookmarks
