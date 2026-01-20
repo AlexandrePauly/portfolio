@@ -10,7 +10,7 @@ if (navigator.userAgent.includes("Mobile")) {
     for (const linkTitleElt of linkTitle) {
         linkTitleElt.style.display = 'none';
     }
-    document.querySelector('body').style.zoom = 0.5;
+    document.querySelector('body').style.zoom = 0.7;
 }
 
 // Gestion du hover pour les bookmarks
