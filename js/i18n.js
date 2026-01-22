@@ -66,7 +66,7 @@ function renderWorkExperience(data, lang) {
   containerReader.innerHTML = ""; // reset
 
   data[lang].workExperience.forEach(elt => {
-    const expHTML = `
+    let expHTML = `
       <div class="workeduc-content">
         <h3>${elt.title}</h3>
 
@@ -77,8 +77,18 @@ function renderWorkExperience(data, lang) {
           <span class="year">
             <i class="bx bx-calendar"></i>${elt.dates}
           </span>
-        </div>
+    `;
 
+    if (elt.type !== undefined) {
+      expHTML = expHTML + `
+          <span class="year">
+            <i class="bx bxs-briefcase"></i>${elt.type}
+          </span>
+      `;
+    }
+
+    expHTML = expHTML + `
+        </div>
         <p>${elt.description}</p>
       </div>
     `;
